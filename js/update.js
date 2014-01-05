@@ -1,0 +1,76 @@
+Ôªø//Prufu fall til a byrta loading screen · mean vi sÊkjum gˆgn
+function Update_Check()
+{
+	console.log("falli√∞ update check");
+	// update the block message 
+	$.blockUI({ 
+		message: $('#displayBox'), 
+		css: { 
+			top:  ($(window).height() - 400) /2 + 'px', 
+			left: ($(window).width() - 400) /2 + 'px', 
+			width: '400px' 
+		} 
+	}); 
+	$.ajax({
+		url: 'http://entrio.appservicestation.com/lastchange.php?timestamp='+localStorage.timestamp,
+		dataType: 'text',                                                                                                                                                                                                
+		success: function(msg){
+			//$("#kisi").html(msg.a);
+			//alert(msg.a);
+			// unblock when remote call returns 
+			
+			 
+			category = $.parseJSON(msg);
+			sessionStorage.timi = category.lastchange.timi;
+			if(sessionStorage.timi > localStorage.timestamp)
+			{
+				console.log("timi st√¶rri");
+				Update();
+			}
+			else
+			{	
+				console.log("unblock");
+				create_featured();
+				$.unblockUI();
+			}
+			sessionStorage.setItem("kisi","kisi"); 
+			
+			
+			
+		   
+		},                                                                                                                                                                                      
+		
+		 
+	});
+};
+
+function Update()
+{
+	console.log("fallid update");
+	
+	$.ajax({
+		url: 'http://entrio.appservicestation.com/update.php',
+		dataType: 'text',                                                                                                                                                                                                
+		success: function(msg){
+			//$("#kisi").html(msg.a);
+			//alert(msg.a);
+			// unblock when remote call returns 
+		
+			
+			localStorage.innihald = msg;
+			data = $.parseJSON(msg);
+			console.log(data.items[0].name);
+			console.log(localStorage.innihald);
+			console.log("Fyllainngogn keyrdi");
+			console.log("unblock");
+			
+			create_featured();
+			$.unblockUI();
+			
+			
+		   
+		},                                                                                                                                                                                      
+		
+		 
+	});
+};

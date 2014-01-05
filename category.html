@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Allt er opið</title> 
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="cordova-plugins.js"></script><!-- load own phonegap plugins (share and toast) -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/functions_before.js"></script><!-- load javascript that needs to be loaded BEFORE jquery mobile loads -->
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script type="text/javascript" src="js/energize.js"></script><!-- for speeding op tap events -->
+	<script>
+				//Byrjar allt, notum pageinit til að triggera þegar síðan keyrist
+			$(document).bind( "pageinit", function(event) 
+			{
+				//loadViewViaAjax('Index.html', afterAjax);
+				console.log("Pageinit triggeraðist");
+				$.mobile.allowCrossDomainPages = true;
+				$.support.cors = true;
+				$.mobile.phonegapNavigationEnabled = true
+				$.mobile.buttonMarkup.hoverDelay = 0;
+			});
+	</script>
+		
+	<script>
+		
+		//$('#home').live('pageinit', function(event) 
+		$(document).bind( "pageinit", "#home", function( e, data ) {
+
+
+		console.log("Sidakeyrist");
+				 //category = $.parseJSON(localStorage.innihald);
+				 //console.log(category);
+
+				// The pages we use to display our content are already in
+				// the DOM. The id of the page we are going to write our
+				// content into is specified in the hash before the '?'.
+				pageSelector = home;//urlObj.hash.replace( /\?.*$/, "" );
+			category = sessionStorage.kisi;
+			if ( category ) {
+				// Get the page we are going to dump our content into.
+				var $page = $( pageSelector ),
+
+					// Get the header for the page.
+					$header = $page.children( ":jqmData(role=header)" ),
+
+					// Get the content area element for the page.
+					$content = $page.children( ":jqmData(role=id)" ),
+
+					// The markup we are going to inject into the content
+					// area of the page.
+					markup = '<ul  data-role="listview" data-theme="a" >';
+
+					// The array of items for this category.
+					//cItems = category.flokkur,
+
+					// The number of items in the category.
+					//numItems = cItems.length;
+
+				// Generate a list item for each item in the category
+				// and add it to our markup.
+				//for ( var i = 0; i < numItems; i++ ) {
+					//markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
+					markup += ' <li><a  class="flokkur" id="1" href="page2.html" rel="external"  data-transition="slide"  ><h4>'+category+'</h4></a></li>',
+					//console.log(cItems[i].name);
+				//}
+				markup += "</ul>";
+				
+				// Find the h1 element in our header and inject the name of
+				// the category into it.
+				$header.find( "h1" ).html( category );
+				console.log(markup);
+				// Inject the category items markup into the content element.
+				$content.html( markup );
+
+				// Pages are lazily enhanced. We call page() on the page
+				// element to make sure it is always enhanced before we
+				// attempt to enhance the listview markup we just injected.
+				// Subsequent calls to page() are ignored since a page/widget
+				// can only be enhanced once.
+				$page.page();
+
+				// Enhance the listview we just injected.
+				$content.find( ":jqmData(role=listview)" ).listview();
+				
+				// We don't want the data-url of the page we just modified
+				// to be the url that shows up in the browser's location field,
+				// so set the dataUrl option to the URL for the category
+				// we just loaded.
+				//options.dataUrl = urlObj.href; tko ut er að prufa..
+
+				// Now call changePage() and tell it to switch to
+				// the page we just modified.
+				$.mobile.changePage( $page );
+				$page.page();
+			}
+			
+			
+
+
+		});
+
+	</script>
+	</head>
+	<body>
+	 <div id="container"/>
+	<!--Begin page 1 -->
+		<div data-role="page" class="jqm-demos ui-responsive-panel" id="home" data-url="panel-fixed-page1">
+			<div data-role="header" data-theme="a" data-position="fixed" >
+				<h1></h1>
+				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+				<a href="#add-form" data-icon="plus" data-iconpos="notext">Add</a>
+			</div><!-- /header -->
+			<div data-role="id"></div>
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<h4>Fixed foodsfdsfter</h4>
+			</div><!-- /footer -->
+			<div data-role="panel" data-swipe-close="true" data-display="overlay" data-position-fixed="true" data-theme="a" id="nav-panel">
+				<ul data-role="listview" data-theme="a" class="nav-search">
+					<li data-icon="delete"><a href="#" data-rel="close">OfferMonkey</a></li>
+					<li data-role="list-divider">Offers</li>
+					<li><a href="#panel-fixed-page2">Real-time</a></li>
+					<li><a href="#panel-fixed-page2">Sponsors</a></li>
+					<li><a href="#panel-fixed-page2">Subscriptions</a></li>
+					<li><a href="#panel-fixed-page2">Check-in</a></li>
+					<li data-role="list-divider">User</li>
+					<li><a href="#panel-fixed-page2">Invites</a><span class="ui-li-count">86</span></li>
+					<li><a href="#panel-fixed-page2">Collect via NFC</a></li>
+					<li><a href="#panel-fixed-page2">FAQ</a></li>
+					<li><a href="#panel-fixed-page2">Settings</a></li>
+				</ul>
+			</div><!-- /panel -->
+			<div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="b" id="add-form">
+				<form class="userform">
+					<h2>Create new user</h2>
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="status" value="" data-clear-btn="true" data-mini="true">
+					<label for="password">Password:</label>
+					<input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+					<div class="switch">
+						<label for="status">Status</label>
+						<select name="status" id="slider" data-role="slider" data-mini="true">
+							<option value="off">Inactive</option>
+							<option value="on">Active</option>
+						</select>
+					</div>
+					<div class="ui-grid-a">
+						<div class="ui-block-a"><a href="#" data-rel="close" data-role="button" data-theme="c" data-mini="true">Cancel</a></div>
+						<div class="ui-block-b"><a href="#" data-rel="close" data-role="button" data-theme="b" data-mini="true">Save</a></div>
+					</div>
+				</form>
+			</div><!-- /panel -->
+		</div><!-- /Page 1-->
+		</div>
+		
+		
+		
+	</body>
+</html>
