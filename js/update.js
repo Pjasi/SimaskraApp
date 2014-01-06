@@ -1,4 +1,4 @@
-ï»¿//Prufu fall til að byrta loading screen á meðan við sækjum gögn
+ï»¿//Prufu fall til aï¿½ byrta loading screen ï¿½ meï¿½an viï¿½ sï¿½kjum gï¿½gn
 function Update_Check()
 {
 	console.log("falliÃ° update check");
@@ -6,10 +6,10 @@ function Update_Check()
 	$.blockUI({ 
 		message: $('#displayBox'), 
 		css: { 
-			top:  ($(window).height() - 400) /2 + 'px', 
-			left: ($(window).width() - 400) /2 + 'px', 
-			width: '400px' 
-		} 
+			top:  $(window).height()+ 'px',
+			left: $(window).width() + 'px',
+			width: $(window).width() + 'px'
+        }
 	}); 
 	$.ajax({
 		url: 'http://entrio.appservicestation.com/lastchange.php?timestamp='+localStorage.timestamp,
