@@ -6,8 +6,8 @@ function Update_Check()
 	$.blockUI({ 
 		message: $('#displayBox'), 
 		css: { 
-			top:  $(window).height()+ 'px',
-			left: $(window).width() + 'px',
+			top:  '0 px',
+			left:  '0 px',
 			width: $(window).width() + 'px'
         }
 	}); 
