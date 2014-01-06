@@ -2,15 +2,18 @@
 function Update_Check()
 {
 	console.log("fallið update check");
-	// update the block message 
+	// update the block message
+    /*
 	$.blockUI({ 
 		message: $('#displayBox'), 
 		css: { 
 			top:  '0 px',
 			left:  '0 px',
-			width: $(window).width() + 'px'
+			width: $(window).width() + 'px',
+            height: $(window).height() + 'px'
         }
-	}); 
+	});
+	*/
 	$.ajax({
 		url: 'http://entrio.appservicestation.com/lastchange.php?timestamp='+localStorage.timestamp,
 		dataType: 'text',                                                                                                                                                                                                
@@ -31,14 +34,14 @@ function Update_Check()
 			{	
 				console.log("unblock");
 				create_featured();
-				$.unblockUI();
+				//$.unblockUI();
 			}
 			sessionStorage.setItem("kisi","kisi"); 
 			
 			
 			
 		   
-		},                                                                                                                                                                                      
+		}
 		
 		 
 	});
@@ -65,11 +68,11 @@ function Update()
 			console.log("unblock");
 			
 			create_featured();
-			$.unblockUI();
+			//$.unblockUI();
 			
 			
 		   
-		},                                                                                                                                                                                      
+		}
 		
 		 
 	});
