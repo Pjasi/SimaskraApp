@@ -45,6 +45,7 @@
 		//console.log(markup);
 		// Inject the category items markup into the content element.
 		$("#featured_list").html( markup );
+        
 
 		// Pages are lazily enhanced. We call page() on the page
 		// element to make sure it is always enhanced before we
