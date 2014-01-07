@@ -85,14 +85,14 @@
 
         function exitAppPopup() {
             navigator.notification.confirm(
-                    'Exit PhoneGap ' + device.cordova + ' Demo?'
+                    'Loka símaskranni?'
                     , function(button) {
                         if (button == 2) {
                             navigator.app.exitApp();
                         }
                     }
-                    , 'Exit'
-                    , 'No,Yes'
+                    , 'Hætta'
+                    , 'Nei,Já'
             );
             return false;
         }
