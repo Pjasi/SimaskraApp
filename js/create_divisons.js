@@ -68,7 +68,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         // the page we just modified.
         //$.mobile.changePage( $page );
         //$content.find( ":jqmData(role=listview)" ).listview();
-        $("#categories_list").trigger( 'create' );
+        $("#divisions_list").trigger( 'create' );
         $page.page();
     }
 
