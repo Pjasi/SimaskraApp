@@ -20,15 +20,33 @@
 			// Get the content area element for the page.
 			//$content = $page.children( ":jqmData(role=id)" ),
 
-			// The markup we are going to inject into the content
-			// area of the page.
-			markup = '<ul  data-role="listview" data-theme="a"   >';
+
+
+
 
 			// The array of items for this category.
 			cItems = data.items,
 
 			// The number of items in the category.
 			numItems = cItems.length;
+
+        // The markup we are going to inject into the content
+        // area of the page.
+        // Her munum vid setja upp logic fyrir dividers...
+        switch(sessionStorage.divider)
+        {
+            case 2:
+                markup = '<ul  data-role="listview" data-theme="a" data-filter="true" data-autodividers="true">';
+                console.log(sessionStorage.divider)
+                break;
+            case 3:
+                markup = '<ul  data-role="listview" data-theme="a" data-filter="true" data-autodividers="true">';
+                console.log(sessionStorage.divider)
+                break;
+            default:
+                markup = '<ul  data-role="listview" data-theme="a" data-filter="true">';
+                console.log(sessionStorage.divider)
+        }
 
 		// Generate a list item for each item in the category
 		// and add it to our markup.
@@ -41,7 +59,7 @@
 
 		// Find the h1 element in our header and inject the name of
 		// the category into it.
-		$header.find( "h1" ).html( "Featured Offers" );
+		$header.find( "h1" ).html( "Símaskráin okkar allra" );
 		//console.log(markup);
 		// Inject the category items markup into the content element.
 		$("#featured_list").html( markup );

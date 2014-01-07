@@ -35,9 +35,9 @@ $(document).on( 'pagebeforeshow','#categories' ,function( e, data ) {
 		//markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
 		markup += ' <li><a  class="flokkur" id="'+sessionStorage.flokkur+'"haus="'+data.items[sessionStorage.flokkur].name+'" href="#category"  data-transition="none"  ><h4>'+data.items[sessionStorage.flokkur].name+'</h4></a></li>';
 		//console.log(cItems[i].name);
-		
+
 		markup += "</ul>";
-		
+
 		
 
 		// Find the h1 element in our header and inject the name of
