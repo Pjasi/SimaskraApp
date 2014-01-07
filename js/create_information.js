@@ -1,13 +1,13 @@
-$(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
+$(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
 
-    console.log("Divisons");
+    console.log("information");
     //category = $.parseJSON(localStorage.innihald);
     //console.log(category);
 
     // The pages we use to display our content are already in
     // the DOM. The id of the page we are going to write our
     // content into is specified in the hash before the '?'.
-    pageSelector = divisions;//urlObj.hash.replace( /\?.*$/, "" );
+    pageSelector = information;//urlObj.hash.replace( /\?.*$/, "" );
 
     data = $.parseJSON(localStorage.innihald);
     if ( data ) {
@@ -15,38 +15,27 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         var $page = $( pageSelector ),
 
         // Get the header for the page.
-            $header = $page.children( ":jqmData(role=header)" ),
-
-        // The markup we are going to inject into the content
-        // area of the page.
-            markup = '<ul  data-role="listview" data-theme="a" >';
+        $header = $page.children( ":jqmData(role=header)" ),
+        $current = sessionStorage.flokkur;
 
         // The array of items for this category.
         cItems = data.items,
 
-            // The number of items in the category.
-            numItems = cItems.length;
-
-        // Generate a list item for each item in the category
-        // and add it to our markup.
-        //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-        for ( var i = 0; i < numItems; i++ ) {
-            //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li><a  class="flokkur" id="'+i+'" href="#information"  data-transition="none"  ><h4>'+data.items[i].Nafn+'</h4></a></li>';
-            //console.log(cItems[i].name);
-        }
-       //console.log(cItems[i].name);
-
-        markup += "</ul>";
+        markup =" <Strong>Nafn: " + cItems[$current].Nafn + "</br>";
+        markup +=" <Strong>Simi: " + cItems[$current].Simi + "</br>";
+        markup +=" <Strong>Netfang: " + cItems[$current].Netfang + "</br>";
+        markup +=" <Strong>Deild: " + cItems[$current].Deild + "</br>";
+        markup +=" <Strong>Starfsstöð: " + cItems[$current].Starfsstod + "</br>";
+        markup +=" <Strong>Starfsheiti: " + cItems[$current].Starfsheiti + "</br>";
 
 
 
         // Find the h1 element in our header and inject the name of
         // the category into it.
-        $header.find( "h1" ).html( "Deildir" );
+        $header.find( "h1" ).html( cItems[$current].Nafn );
         //console.log(markup);
         // Inject the category items markup into the content element.
-        $("#divisions_list").html( markup );
+        $("#information_list").html( markup );
 
         // Pages are lazily enhanced. We call page() on the page
         // element to make sure it is always enhanced before we
@@ -68,7 +57,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         // the page we just modified.
         //$.mobile.changePage( $page );
         //$content.find( ":jqmData(role=listview)" ).listview();
-        $("#divisions_list").trigger( 'create' );
+        $("#information_list").trigger( 'create' );
         $page.page();
     }
 
