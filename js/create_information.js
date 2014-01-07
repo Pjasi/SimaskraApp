@@ -22,12 +22,11 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
         cItems = data.items,
 
         markup =" <Strong>Nafn: " + cItems[$current].Nafn + "</br>";
-        markup +=" <Strong>Simi: " + cItems[$current].Simi + "</br>";
-        markup +=" <Strong>Netfang: " + cItems[$current].Netfang + "</br>";
+        markup +=" <Strong>Simi:" + "<a href=\"tel:+354" +  cItems[$current].Simi + "\""+ ">" +  cItems[$current].Simi + "</a> </br>";
+        markup +=" <Strong>Netfang:" + "<a href=\"mailto:" +  cItems[$current].Netfang + "\""+ ">" +  cItems[$current].Netfang + "</a> </br>";
         markup +=" <Strong>Deild: " + cItems[$current].Deild + "</br>";
         markup +=" <Strong>Starfsstöð: " + cItems[$current].Starfsstod + "</br>";
         markup +=" <Strong>Starfsheiti: " + cItems[$current].Starfsheiti + "</br>";
-
 
 
         // Find the h1 element in our header and inject the name of
