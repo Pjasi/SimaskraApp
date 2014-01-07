@@ -18,8 +18,6 @@ $(document).on( 'pagebeforeshow','#categories' ,function( e, data ) {
 			// Get the header for the page.
 			$header = $page.children( ":jqmData(role=header)" ),
 
-			
-
 			// The markup we are going to inject into the content
 			// area of the page.
 			markup = '<ul  data-role="listview" data-theme="a" >';
@@ -33,7 +31,7 @@ $(document).on( 'pagebeforeshow','#categories' ,function( e, data ) {
 		// Generate a list item for each item in the category
 		// and add it to our markup.
 		//markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-		markup += ' <li><a  class="flokkur" id="'+sessionStorage.flokkur+'"haus="'+data.items[sessionStorage.flokkur].name+'" href="#category"  data-transition="none"  ><h4>'+data.items[sessionStorage.flokkur].name+'</h4></a></li>';
+		markup += ' <li><a  class="flokkur" id="'+sessionStorage.flokkur+'" href="#category"  data-transition="none"><h4>'+data.items[sessionStorage.flokkur].name+'</h4></a></li>';
 		//console.log(cItems[i].name);
 
 		markup += "</ul>";

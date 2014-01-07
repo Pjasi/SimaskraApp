@@ -29,18 +29,13 @@
             localStorage.timestamp = '0';
         }
 
-        // Upphafsstilla session storage fyrir divider
-        sessionStorage.divider = 1;
 
         //Save what offer was just clicked
         $(document).on('click','a.flokkur', function() {
             sessionStorage.flokkur = $(this).attr("id");
-            sessionStorage.haus = $(this).attr("haus");
+            sessionStorage.haus = $(this).attr();
         });
-        //Save what type of divider
-        $(document).on('click','a.dividerOp', function() {
-            sessionStorage.divider = $(this).attr("sortid");
-        });
+
 
         $(document).on( 'pageinit ','#featured', function(event)
         {
@@ -104,9 +99,9 @@
         <div data-role="tabs" id="tabs">
             <div data-role="navbar">
                 <ul>
-                    <li><a class="dividerOp" href="#categories" data-transition="none" sortid="1">Stafrófsröð</a></li>
-                    <li><a class="dividerOp" href="#categories" data-transition="none" sortid="2">Deild</a></li>
-                    <li><a class="dividerOp" href="#categories" data-transition="none" sortid="3">Starfsstöð</a></li>
+                    <li><a class="flokkur" href="#categories" data-transition="none" id="1">Stafrófsröð</a></li>
+                    <li><a class="flokkur" href="#categories" data-transition="none" id="2">Deild</a></li>
+                    <li><a class="flokkur" href="#categories" data-transition="none" id="3">Starfsstöð</a></li>
                 </ul>
             </div>
         </div>

@@ -20,10 +20,6 @@
 			// Get the content area element for the page.
 			//$content = $page.children( ":jqmData(role=id)" ),
 
-
-
-
-
 			// The array of items for this category.
 			cItems = data.items,
 
@@ -38,7 +34,7 @@
 		// and add it to our markup.
 		for ( var i = 0; i < numItems; i++ ) {
 			//markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-			markup += ' <li><a  class="flokkur" id="'+i+'"haus="'+data.items[i].name+'" href="#categories"  data-transition="none"  ><h4>'+data.items[i].name+'</h4></a></li>';
+			markup += ' <li><a  class="flokkur" id="'+i+'" href="#categories"  data-transition="none"  ><h4>'+data.items[i].name+'</h4></a></li>';
 			//console.log(cItems[i].name);
 		}
 		markup += "</ul>";
@@ -46,7 +42,7 @@
 		// Find the h1 element in our header and inject the name of
 		// the category into it.
 		$header.find( "h1" ).html( "Símaskráin okkar allra" );
-		//console.log(markup);
+		console.log(data);
 		// Inject the category items markup into the content element.
 		$("#alphabet_list").html( markup );
         
