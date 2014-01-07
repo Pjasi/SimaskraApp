@@ -71,7 +71,10 @@
             document.addEventListener("backbutton", function(e){
                 if($.mobile.activePage.is('#featured')){
                     e.preventDefault();
-                    navigator.app.exitApp();
+                    if (confirm("Ertu viss að viljir loka?")) {
+                        navigator.app.exitApp();
+                    }
+
                 }
                 else {
                     navigator.app.backHistory()
