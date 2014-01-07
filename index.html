@@ -14,7 +14,7 @@
     <script type="text/javascript" src="js/jquery.blockUI.js"></script><!-- for speeding op tap events -->
     <script type="text/javascript" src="js/gps.js"></script><!-- gettin gps cord -->
     <script type="text/javascript" src="js/update.js"></script><!-- Get data from server-->
-    <script type="text/javascript" src="js/create_featured.js"></script><!-- Get data from server-->
+    <script type="text/javascript" src="js/create_firstpage.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_categories.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_category.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_offers.js"></script><!-- Get data from server-->
@@ -52,7 +52,7 @@
             console.log("Athuga hvort eigi að uppfæra gögn");
             if(sessionStorage.load == "1")
             {
-                create_featured();
+                create_firstpage();
             }
             else
             {
@@ -97,7 +97,7 @@
         <h1>Fixed header</h1>
         <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
     </div><!-- /header -->
-    <div data-role="content" id="featured_list">
+    <div data-role="content" id="alphabet_list">
 
     </div>
     <div data-role="footer" data-id="foo1" data-position="fixed">

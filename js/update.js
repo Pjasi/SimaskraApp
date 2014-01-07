@@ -33,7 +33,7 @@ function Update_Check()
 			else
 			{	
 				console.log("unblock");
-				create_featured();
+				create_firstpage();
 				//$.unblockUI();
 			}
 			sessionStorage.setItem("kisi","kisi"); 
@@ -67,7 +67,7 @@ function Update()
 			console.log("Fyllainngogn keyrdi");
 			console.log("unblock");
 			
-			create_featured();
+			create_firstpage();
 			//$.unblockUI();
 			
 			
