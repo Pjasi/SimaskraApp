@@ -62,7 +62,6 @@ function Update()
 			
 			localStorage.innihald = msg;
 			data = $.parseJSON(msg);
-			alert(data);
 			//console.log(localStorage.innihald);
 			console.log("Fyllainngogn keyrdi");
 			console.log("unblock");
