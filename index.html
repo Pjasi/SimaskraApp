@@ -77,12 +77,18 @@
         }
 
         function ShowExitDialog() {
-            navigator.notification.confirm(
-                    ("Do you want to Exit?"), // message
-                    alertexit, // callback
-                    'My APp', // title
-                    'YES,NO' // buttonName
-            );
+            if($.mobile.activePage.is('#featured')){
+                navigator.notification.confirm(
+                        ("Do you want to Exit?"), // message
+                        alertexit, // callback
+                        'My APp', // title
+                        'YES,NO' // buttonName
+                );
+            }
+            else
+            {
+                navigator.app.backHistory()
+            }
 
         }
 
@@ -95,6 +101,7 @@
             }
 
         }
+
 
 
         function onBodyLoad() {
