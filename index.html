@@ -68,24 +68,24 @@
             console.log("deviceready triggeraðist");
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
-            document.addEventListener("backbutton", onBackKeyDown, false);
+            document.addEventListener('deviceready', function() {
+
+                document.addEventListener("backbutton", ShowExitDialog, false);
+
+            }, false);
 
         }
 
-        function onBackKeyDown() {
-
-            if($.mobile.activePage.is('#featured')){
-                e.preventDefault();
-                if (confirm("Ertu viss að viljir loka?")) {
-                    navigator.app.exitApp();
-                }
-
-            }
-            else {
-                navigator.app.backHistory()
-            }
+        function ShowExitDialog() {
+            navigator.notification.confirm(
+                    ("Do you want to Exit?"), // message
+                    alertexit, // callback
+                    'My APp', // title
+                    'YES,NO' // buttonName
+            );
 
         }
+
 
         function onBodyLoad() {
 
