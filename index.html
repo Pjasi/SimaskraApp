@@ -68,23 +68,18 @@
             console.log("deviceready triggeraðist");
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
-            document.addEventListener('deviceready', function() {
-
-                document.addEventListener("backbutton", ShowExitDialog, false);
-
+            document.addEventListener("backbutton", function(e){
+                if($.mobile.activePage.is('#featured')){
+                    e.preventDefault();
+                    navigator.app.exitApp();
+                }
+                else {
+                    navigator.app.backHistory()
+                }
             }, false);
 
         }
 
-        function ShowExitDialog() {
-            navigator.notification.confirm(
-                    ("Do you want to Exit?"), // message
-                    alertexit, // callback
-                    'My APp', // title
-                    'YES,NO' // buttonName
-            );
-
-        }
 
 
         function onBodyLoad() {
