@@ -69,10 +69,16 @@
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
 
+            var options = new ContactFindOptions();
+            var fields = ["displayName", "name"];
+            navigator.contacts.find(fields, onSuccess, onError, options);
 
+        }
 
-
-
+        function onSuccess(contacts) {
+            for (var i = 0; i < contacts.length; i++) {
+                alert("Display Name = " + contacts[i].displayName);
+            }
         }
 
         document.addEventListener("backbutton", function() {
