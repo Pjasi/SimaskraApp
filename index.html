@@ -68,13 +68,18 @@
             console.log("deviceready triggeraðist");
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
-            document.addEventListener("backbutton", onBackKeyDown, false);
-
+            document.addEventListener("backbutton", function(e){
+                if($.mobile.activePage.is('#featured')){
+                    e.preventDefault();
+                    navigator.app.exitApp();
+                }
+                else {
+                    navigator.app.backHistory()
+                }
+            }, false);
         }
 
-        function onBackKeyDown() {
-            alert("tilbaka");
-        }
+
 
         function onBodyLoad() {
 
