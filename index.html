@@ -68,20 +68,33 @@
             console.log("deviceready triggeraðist");
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
-            document.addEventListener("backbutton", function(e){
-                if($.mobile.activePage.is('#featured')){
-                    
-                    alert("exit");
-                    navigator.app.exitApp();
+            document.addEventListener('deviceready', function() {
 
-                }
-                else {
-                    navigator.app.backHistory()
-                }
+                document.addEventListener("backbutton", ShowExitDialog, false);
+
             }, false);
 
         }
 
+        function ShowExitDialog() {
+            navigator.notification.confirm(
+                    ("Do you want to Exit?"), // message
+                    alertexit, // callback
+                    'My APp', // title
+                    'YES,NO' // buttonName
+            );
+
+        }
+
+        function alertexit(button){
+
+            if(button=="1" || button==1)
+            {
+
+                device.exitApp();
+            }
+
+        }
 
 
         function onBodyLoad() {
