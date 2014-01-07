@@ -1,6 +1,5 @@
 $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
 
-
     console.log("Divisons");
     //category = $.parseJSON(localStorage.innihald);
     //console.log(category);
@@ -44,7 +43,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
 
         // Find the h1 element in our header and inject the name of
         // the category into it.
-        $header.find( "h1" ).html( Deildir );
+        $header.find( "h1" ).html( "Deildir" );
         //console.log(markup);
         // Inject the category items markup into the content element.
         $("#divisions_list").html( markup );
