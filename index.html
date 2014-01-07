@@ -70,16 +70,15 @@
             $.support.cors = true;
 
             var options = new ContactFindOptions();
-            options.filter = "Arion";
             var fields = ["displayName", "name"];
             navigator.contacts.find(fields, onSuccess, onError, options);
 
         }
 
         function onSuccess(contacts) {
-            for (var i = 0; i < contacts.length; i++) {
-                alert("Display Name = " + contacts[i].displayName);
-            }
+            sessionStorage.setItem("contacts",contacts);
+            alert("Display Name = " );
+
         }
 
 
