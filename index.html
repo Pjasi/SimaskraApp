@@ -69,38 +69,33 @@
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
 
-             document.addEventListener("backbutton", ShowExitDialog, false);
 
 
 
-        }
-
-        function ShowExitDialog() {
-            if($.mobile.activePage.is('#featured')){
-                navigator.notification.confirm(
-                        ("Viltu hætta?"), // message
-                        alertexit, // callback
-                        'Simaskra', // title
-                        'Já,Nei' // buttonName
-                );
-            }
-            else
-            {
-                navigator.app.backHistory()
-            }
 
         }
 
-        function alertexit(button){
-
-            if(button=="1" || button==1)
-            {
-
-                navigator.app.exitApp();
+        document.addEventListener("backbutton", function() {
+            if ( $('.ui-page-active').attr('id') == 'featured') {
+                exitAppPopup();
+            } else {
+                history.back();
             }
+        }, false);
 
+        function exitAppPopup() {
+            navigator.notification.confirm(
+                    'Exit PhoneGap ' + device.cordova + ' Demo?'
+                    , function(button) {
+                        if (button == 2) {
+                            navigator.app.exitApp();
+                        }
+                    }
+                    , 'Exit'
+                    , 'No,Yes'
+            );
+            return false;
         }
-
 
 
         function onBodyLoad() {
