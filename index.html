@@ -79,10 +79,10 @@
         function ShowExitDialog() {
             if($.mobile.activePage.is('#featured')){
                 navigator.notification.confirm(
-                        ("Do you want to Exit?"), // message
+                        ("Viltu hætta?"), // message
                         alertexit, // callback
-                        'My APp', // title
-                        'YES,NO' // buttonName
+                        'Simaskra', // title
+                        'Já,Nei' // buttonName
                 );
             }
             else
@@ -97,7 +97,7 @@
             if(button=="1" || button==1)
             {
 
-                device.exitApp();
+                navigator.app.exitApp();
             }
 
         }
