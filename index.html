@@ -68,21 +68,24 @@
             console.log("deviceready triggeraðist");
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
-            document.addEventListener("backbutton", function(e){
-                if($.mobile.activePage.is('#featured')){
-                    e.preventDefault();
-                    if (confirm("Ertu viss að viljir loka?")) {
-                        navigator.app.exitApp();
-                    }
+            document.addEventListener("backbutton", onBackKeyDown, false);
 
-                }
-                else {
-                    navigator.app.backHistory()
-                }
-            }, false);
         }
 
+        function onBackKeyDown() {
 
+            if($.mobile.activePage.is('#featured')){
+                e.preventDefault();
+                if (confirm("Ertu viss að viljir loka?")) {
+                    navigator.app.exitApp();
+                }
+
+            }
+            else {
+                navigator.app.backHistory()
+            }
+
+        }
 
         function onBodyLoad() {
 
