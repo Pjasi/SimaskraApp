@@ -32,7 +32,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
         for ( var i = 0; i < numItems; i++ ) {
             //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li><a  class="flokkur" id="'+i+'" division="'+data.items[i].Deild+'" href="#categories"  data-transition="none"  ><h4>'+data.items[i].Nafn+'</h4></a></li>';
+            markup += ' <li><a  class="flokkur" id="'+i+'" division="'+data.items[i].Deild+'" href="#infromation"  data-transition="none"  ><h4>'+data.items[i].Nafn+'</h4></a></li>';
             //console.log(cItems[i].name);
         }
        //console.log(cItems[i].name);
@@ -46,8 +46,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         $header.find( "h1" ).html( "Deildir" );
         //console.log(markup);
         // Inject the category items markup into the content element.
-
-
+        $("#divisions_list").html( markup );
 
         // Pages are lazily enhanced. We call page() on the page
         // element to make sure it is always enhanced before we
@@ -71,7 +70,6 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         //$content.find( ":jqmData(role=listview)" ).listview();
         $("#divisions_list").trigger( 'create' );
         $page.page();
-        $("#divisions_list").html( markup );
 
         $("#division_list").listview({
             autodividers: true,
