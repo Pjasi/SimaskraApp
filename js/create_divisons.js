@@ -21,7 +21,7 @@ $(document).on( 'pageinit','#divisions' ,function( e, data ) {
 
         // The markup we are going to inject into the content
         // area of the page.
-            markup = '<ul id="division_list"  data-theme="a" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
+            markup = '<ul id="division_list"  data-theme="a" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Leita af nafni" data-autodividers="false">';
 
         // The array of items for this category.
         cItems = dataDivision.items,
