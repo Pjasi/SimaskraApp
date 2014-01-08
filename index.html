@@ -87,6 +87,10 @@
             alert('onError!');
         }
 
+        $(document).on('tap', function(e) {
+            $('.flokkur').removeClass($.mobile.activeBtnClass);
+        });
+
         document.addEventListener("backbutton", function() {
             if ( $('.ui-page-active').attr('id') == 'featured') {
                 exitAppPopup();
@@ -128,7 +132,7 @@
 <div data-role="page" data-theme="a"  id="featured" >
     <img id="displayBox" src="Images/loading.gif" width="400" height="400" style="display:none" />
     <div data-role="header" data-theme="a" data-position="fixed" >
-        <h1>Fixed header</h1>
+        <h1>Símaskra</h1>
         <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
     </div><!-- /header -->
     <div data-role="content" id="alphabet_list">
@@ -145,7 +149,7 @@
     </div><!-- /footer -->
 </div><!-- /Page 1-->
 
-<!-- Page 2, Displays the list of categories-->
+<!-- Page 2, Page for names grouped by divisons-->
 <div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="divisions" data-url="panel-fixed-page1">
     <div data-role="header" data-theme="a" data-position="fixed" >
         <h1>Deildir</h1>
@@ -165,7 +169,7 @@
     </div><!-- /footer -->
 </div><!-- /Page 2-->
 
-<!-- Page 3, Displays the list of categories-->
+<!-- Page 3, Page for names grouped by workplace-->
 <div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="workplace" data-url="panel-fixed-page1">
     <div data-role="header" data-theme="a" data-position="fixed" >
         <h1>Starfsstöð</h1>
@@ -185,7 +189,7 @@
     </div><!-- /footer -->
 </div><!-- /Page 3-->
 
-<!-- Page 4, Displays the list of categories-->
+<!-- Page 4, Displays information on a employee-->
 <div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="information" data-url="panel-fixed-page1">
     <div data-role="header" data-theme="a" data-position="fixed" >
         <h1></h1>
@@ -197,17 +201,6 @@
 
 </div><!-- /Page 4-->
 
-
-<!---------------------------Kortasida-------------------------------------->
-<div data-role="page" data-theme="a" class="page-map"  id="map" >
-    <div data-role="header" data-position="fixed"  ><h1></h1><a data-rel="back">Back</a></div>
-
-
-    <div data-role="content" id="map-canvas">
-        <!-- map loads here... -->
-    </div>
-
-</div>
 
 
 </body>
