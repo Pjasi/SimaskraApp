@@ -18,23 +18,25 @@ header("access-control-allow-origin: *");
   //--------------------------------------------------------------------------
   // 1) Connect to mysql database
   //--------------------------------------------------------------------------
-  $con = mysql_connect($host,$user,$pass);
-  $dbs = mysql_select_db($databaseName, $con);
+  //$con = mysql_connect($host,$user,$pass);
+  //$dbs = mysql_select_db($databaseName, $con);
+  $db = new PDO('mysql:host=$host;dbname=$databaseName;charset=utf8', '$user', '$pass');
   
   //--------------------------------------------------------------------------
   // 2) Get DA DATA
   //--------------------------------------------------------------------------
   
-mysql_set_charset("UTF8");
+//mysql_set_charset("UTF8");
 
 	$data = '{"Users":[';
 	  
 	$data .='{"items": [';
 	//Load all departments from table
-	$uniqueList = mysql_query("SELECT DISTINCT $uniqueItem FROM $tableName;");
-	print_r(mysql_fetch_all($uniqueList));
+	$uniqueList = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName;");
+	print_r($uniqueList->fetchAll(PDO::FETCH_ASSOC););
 	echo "uniqueList done";
 
+/*
 	$resultyfir = mysql_query("SELECT * FROM $tableName ");   
 	echo mysql_error();
 	          //query
@@ -115,4 +117,5 @@ echo $data;
 mysql_close();
 	die();
 
+*/
 ?>
