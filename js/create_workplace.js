@@ -10,7 +10,8 @@ $(document).on( 'pagebeforeshow','#workplace' ,function( e, data ) {
     pageSelector = workplace;//urlObj.hash.replace( /\?.*$/, "" );
 
     data = $.parseJSON(localStorage.innihald);
-    if ( data ) {
+    dataWorkplace = data.Users[2];
+    if ( dataWorkplace ) {
         // Get the page we are going to dump our content into.
         var $page = $( pageSelector ),
 
@@ -22,7 +23,7 @@ $(document).on( 'pagebeforeshow','#workplace' ,function( e, data ) {
             markup = '<ul id="workplace_list" data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
 
         // The array of items for this category.
-        cItems = data.items,
+        cItems = dataWorkplace.items,
 
             // The number of items in the category.
             numItems = cItems.length;
@@ -32,7 +33,7 @@ $(document).on( 'pagebeforeshow','#workplace' ,function( e, data ) {
         //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
         for ( var i = 0; i < numItems; i++ ) {
             //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li workplace="'+data.items[i].Starfsstod+'"><a  class="flokkur" id="'+i+'" href="#information"  data-transition="none"  ><h4>'+data.items[i].Nafn+'</h4></a></li>';
+            markup += ' <li workplace="'+cItems[i].Starfsstod+'"><a  class="flokkur" id="'+i+'" href="#information"  data-transition="none"  ><h4>'+cItems[i].Nafn+'</h4></a></li>';
             //console.log(cItems[i].name);
         }
        //console.log(cItems[i].name);

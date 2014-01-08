@@ -50,29 +50,29 @@ function Update_Check()
 function Update()
 {
 	console.log("fallid update");
-	
-	$.ajax({
-		url: 'http://entrio.appservicestation.com/update.php',
-		dataType: 'text',                                                                                                                                                                                                
-		success: function(msg){
-			//$("#kisi").html(msg.a);
-			//alert(msg.a);
-			// unblock when remote call returns 
-		
-			
-			localStorage.innihald = msg;
-			data = $.parseJSON(msg);
-			//console.log(localStorage.innihald);
-			console.log("Fyllainngogn keyrdi");
-			console.log("unblock");
-			
-			create_firstpage();
-			//$.unblockUI();
-			
-			
-		   
-		}
-		
-		 
-	});
+
+    $.ajax({
+        url: 'http://entrio.appservicestation.com/updateMulti.php',
+        dataType: 'text',
+        success: function(msg){
+            //$("#kisi").html(msg.a);
+            //alert(msg.a);
+            // unblock when remote call returns
+
+
+            localStorage.innihald = msg;
+            data = $.parseJSON(msg);
+            //console.log(localStorage.innihald);
+
+            console.log("Fyllainngogn keyrdi");
+            console.log("unblock");
+
+            create_firstpage();
+            //$.unblockUI();
+
+
+
+        }
+
+    });
 };

@@ -10,7 +10,8 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
     pageSelector = information;//urlObj.hash.replace( /\?.*$/, "" );
 
     data = $.parseJSON(localStorage.innihald);
-    if ( data ) {
+    dataAlpha = data.Users[0];
+    if ( dataAlpha ) {
         // Get the page we are going to dump our content into.
         var $page = $( pageSelector ),
 
@@ -19,7 +20,7 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
         $current = sessionStorage.flokkur;
 
         // The array of items for this category.
-        cItems = data.items,
+        cItems = dataAlpha.items,
 
         /*
         markup =" <Strong>Nafn: " + cItems[$current].Nafn + "</br>";

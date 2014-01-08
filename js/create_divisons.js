@@ -10,7 +10,9 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
     pageSelector = divisions;//urlObj.hash.replace( /\?.*$/, "" );
 
     data = $.parseJSON(localStorage.innihald);
-    if ( data ) {
+    dataDivision = data.Users[1];
+
+    if ( dataDivision ) {
         // Get the page we are going to dump our content into.
         var $page = $( pageSelector ),
 
@@ -22,7 +24,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
             markup = '<ul id="division_list" data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
 
         // The array of items for this category.
-        cItems = data.items,
+        cItems = dataDivision.items,
 
             // The number of items in the category.
             numItems = cItems.length;
@@ -32,7 +34,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
         for ( var i = 0; i < numItems; i++ ) {
             //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li division="'+data.items[i].Deild+'"><a  class="flokkur" id="'+i+'" href="#information"  data-transition="none"  ><h4>'+data.items[i].Nafn+'</h4></a></li>';
+            markup += ' <li division="'+cItems[i].Deild+'"><a  class="flokkur" id="'+i+'" href="#information"  data-transition="none"  ><h4>'+cItems[i].Nafn+'</h4></a></li>';
             //console.log(cItems[i].name);
         }
        //console.log(cItems[i].name);
