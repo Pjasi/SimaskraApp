@@ -31,8 +31,8 @@ mysql_set_charset("UTF8");
 	  
 	$data .='{"items": [';
 	//Load all departments from table
-	$uniqueList = mysql_query("SELECT DISTINCT $uniqueItem $uniqueItem FROM $tableName;");
-	echo mysql_fetch_array($uniqueList);
+	$uniqueList = mysql_query("SELECT DISTINCT $uniqueItem FROM $tableName;");
+	echo mysql_fetch_row($uniqueList);
 	echo "uniqueList done";
 
 	$resultyfir = mysql_query("SELECT * FROM $tableName ");   
