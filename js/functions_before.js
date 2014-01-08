@@ -15,8 +15,8 @@ $(document).on('mobileinit', function (e) {
 
 
 $(document).bind('mobileinit', function () {
-    $.mobile.activeBtnClass = 'unused';
- });
+    $.mobile.activeBtnClass = 'aBtnSelector';
+});
 
 
 
