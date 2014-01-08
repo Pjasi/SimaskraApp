@@ -6,10 +6,10 @@ header("access-control-allow-origin: *");
   // Example php script for fetching data from mysql database
   //--------------------------------------------------------------------------
   $host = "localhost";
-  $user = "appserv2_entrio";
-  $pass = "R1501892679r!!";
+  $user = "landsnetsimaskra";
+  $pass = "kisi123";
 
-  $databaseName = "appserv2_entrio";
+  $databaseName = "test";
   $tableName = "landsnetSimaskra";
   
 
