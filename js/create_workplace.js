@@ -20,7 +20,7 @@ $(document).on( 'pageinit','#workplace' ,function( e, data ) {
 
         // The markup we are going to inject into the content
         // area of the page.
-            markup = '<ul id="workplace_list"  data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
+            markup = '<ul id="workplace_list" data-role="listview" data-theme="a" data-filter-reveal="true" data-filter="true" data-filter-placeholder="Leita af nafni" >';
 
         // The array of items for this category.
         cItems = dataWorkplace.items,
@@ -72,6 +72,7 @@ $(document).on( 'pageinit','#workplace' ,function( e, data ) {
         $("#workplaces_list").trigger( 'create' );
         $page.page();
 
+        /*
         $("#workplace_list").listview({
             autodividers: true,
             autodividersSelector: function (li) {
@@ -79,7 +80,7 @@ $(document).on( 'pageinit','#workplace' ,function( e, data ) {
                 return out;
             }
         }).listview('refresh');
-
+        */
     }
 
 

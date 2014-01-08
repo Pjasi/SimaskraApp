@@ -21,7 +21,7 @@ $(document).on( 'pageinit','#divisions' ,function( e, data ) {
 
         // The markup we are going to inject into the content
         // area of the page.
-            markup = '<ul id="division_list"  data-theme="a" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
+            markup = '<ul id="division_list"  data-role="listview" data-theme="a" data-filter="true" data-filter-reveal="false" data-filter-placeholder="Leita af nafni" >';
 
         // The array of items for this category.
         cItems = dataDivision.items,
@@ -34,7 +34,7 @@ $(document).on( 'pageinit','#divisions' ,function( e, data ) {
         //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
         for ( var i = 0; i < numItems; i++ ) {
             //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li data-icon="false" division="'+cItems[i].Deild+'"><a  class="flokkur" id="'+ cItems[i].Id +'" href="#information"  data-transition="none"  ><h4>'+cItems[i].Nafn+'</h4></a></li>';
+            markup += ' <li data-icon="false" division="'+cItems[i].Deild+'"><h4>'+cItems[i].Nafn+'</h4></li>';
             //console.log(cItems[i].name);
         }
        //console.log(cItems[i].name);
@@ -69,6 +69,7 @@ $(document).on( 'pageinit','#divisions' ,function( e, data ) {
         // the page we just modified.
         //$.mobile.changePage( $page );
         //$content.find( ":jqmData(role=listview)" ).listview();
+
         $("#divisions_list").trigger( 'create' );
         $page.page();
 
