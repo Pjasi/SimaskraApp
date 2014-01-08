@@ -7,3 +7,20 @@
 }
 
 #map, #map-canvas { width: 100%; height: 100%; padding: 0; }
+
+.listOpt li {
+    margin: 0;
+    display: block;
+    position: relative;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+    padding: 0.1em;
+    border-width: 1px 0 0;
+    border-style: solid;
+}
+.listOpt {
+    list-style-type: none;
+}
