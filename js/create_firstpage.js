@@ -32,7 +32,7 @@
 
         // The markup we are going to inject into the content
         // area of the page.
-         markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
+         markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Leita af nafni">';
 
 		// Generate a list item for each item in the category
 		// and add it to our markup.
