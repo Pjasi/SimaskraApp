@@ -9,6 +9,29 @@
 #map, #map-canvas { width: 100%; height: 100%; padding: 0; }
 
 .listOpt li {
+    display: block;
+    position: relative;
+    overflow: visible;
+    text-align: -webkit-match-parent;
+    margin-left: -2em;
+
+}
+.listOpt {
+    list-style-type: none;
+    margin-top: 1em;
+
+
+}
+.listOpt li a:visited {
+    background: #f6f6f6;
+    border-color: #ddd;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+
+}
+.listOpt li a {
+    border-width: 1px 0 0;
+    border-style: solid;
     margin: 0;
     display: block;
     position: relative;
@@ -16,12 +39,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 16px;
-    padding: 0.1em;
-    border-width: 1px 0 0;
-    border-style: solid;
-
+    font-weight: 700;
 }
-.listOpt {
-    list-style-type: none;
-}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:link {background-color:#000000;}
+a:visited {background-color:#000000;}
+a:hover {background-color:#000000;}
+a:active {background-color:#000000;}
