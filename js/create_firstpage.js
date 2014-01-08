@@ -13,7 +13,9 @@
     dataAlpha = data.Users[0];
 
     console.log(data);
+
 	if ( data ) {
+
         console.log("Heimaif");
 		// Get the page we are going to dump our content into.
 		var $page = $( pageSelector ),
@@ -30,18 +32,28 @@
 			// The number of items in the category.
 			numItems = cItems.length;
 
-        // The markup we are going to inject into the content
-        // area of the page.
-         markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
+        if (localStorage.firstpageloaded == 1)
+        {
+            markup = sessionStorage.prufa;
+        }
+        else
+        {
+            // The markup we are going to inject into the content
+            // area of the page.
+            markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
 
-		// Generate a list item for each item in the category
-		// and add it to our markup.
-		for ( var i = 0; i < numItems; i++ ) {
-			//markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li data-icon="false"><a  class="flokkur" id="'+ cItems[i].Id +'" href="#information" data-transition="none"  ><h4>'+ cItems[i].Nafn+'</h4></a></li>';
-			//console.log(cItems[i].name);
-		}
-		markup += "</ul>";
+            // Generate a list item for each item in the category
+            // and add it to our markup.
+            for ( var i = 0; i < numItems; i++ ) {
+                //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
+                markup += ' <li data-icon="false"><a  class="flokkur" id="'+ cItems[i].Id +'" href="#information" data-transition="none"  ><h4>'+ cItems[i].Nafn+'</h4></a></li>';
+                //console.log(cItems[i].name);
+            }
+            markup += "</ul>";
+            sessionStorage.prufa = markup;
+            localStorage.firstpageloaded = 1;
+        }
+
 
 		// Find the h1 element in our header and inject the name of
 		// the category into it.
