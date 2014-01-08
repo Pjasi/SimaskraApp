@@ -11,6 +11,7 @@ header("access-control-allow-origin: *");
 
   $databaseName = "test";
   $tableName = "landsnetSimaskra";
+  $uniqueItem = "Deild";
   
 
   
@@ -29,12 +30,17 @@ mysql_set_charset("UTF8");
 	$data = '{"Users":[';
 	  
 	$data .='{"items": [';
+	//Load all departments from table
+	$uniqueList = mysql_query("SELECT DISTINCT $uniqueItem $uniqueItem FROM $tableName;");
+	echo $uniqueList
+
 	$resultyfir = mysql_query("SELECT * FROM $tableName ");   
 	echo mysql_error();
 	          //query
+	$seenB4 = array("Netrekstur");
 	while( $rowyfir = mysql_fetch_row($resultyfir) )
 	{//rowyfir
-	$seenB4 = array("Netrekstur");
+
 	if (in_array(trim($rowyfir[6],$seenB4)))
 	{
         echo "Er i array";
