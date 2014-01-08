@@ -39,7 +39,7 @@ $(document).on( 'pagebeforeshow','#workplace' ,function( e, data ) {
 
         markup += "</ul>";
 
-
+        console.log(markup);
 
         // Find the h1 element in our header and inject the name of
         // the category into it.
