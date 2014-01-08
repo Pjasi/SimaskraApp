@@ -19,7 +19,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
 
         // The markup we are going to inject into the content
         // area of the page.
-            markup = '<ul id="division_list" data-role="listview" data-theme="a" data-autodividers="true">';
+            markup = '<ul id="division_list" data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni" data-autodividers="true">';
 
         // The array of items for this category.
         cItems = data.items,
@@ -32,7 +32,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
         //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
         for ( var i = 0; i < numItems; i++ ) {
             //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li division="'+data.items[i].Deild+'"><a  class="flokkur" id="'+i+'"href="#information"  data-transition="none"  ><h4>'+data.items[i].Nafn+'</h4></a></li>';
+            markup += ' <li division="'+data.items[i].Deild+'"><a  class="flokkur" id="'+i+'" href="#information"  data-transition="none"  ><h4>'+data.items[i].Nafn+'</h4></a></li>';
             //console.log(cItems[i].name);
         }
        //console.log(cItems[i].name);
