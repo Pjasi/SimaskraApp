@@ -33,7 +33,7 @@ $(document).on( 'pageinit','#workplace' ,function( e, data ) {
         //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
         for ( var i = 0; i < numItems; i++ ) {
             //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li workplace="'+cItems[i].Starfsstod+'"><a  class="flokkur" id="'+ cItems[i].Id +'" href="#information"  data-transition="none"  ><h4>'+cItems[i].Nafn+'</h4></a></li>';
+            markup += ' <li data-icon="false" workplace="'+cItems[i].Starfsstod+'"><a  class="flokkur" id="'+ cItems[i].Id +'" href="#information"  data-transition="none"  ><h4>'+cItems[i].Nafn+'</h4></a></li>';
             //console.log(cItems[i].name);
         }
        //console.log(cItems[i].name);
