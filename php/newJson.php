@@ -49,11 +49,11 @@ header("access-control-allow-origin: *");
 	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
 	        if ($uniqueList[$iUnique] == trim($row['Deild'])){
 	            $uniqueListJson[$iUnique] .= '{
-                		"Id": "'.trim($row['Id']).'",
+                		"Id": "'.trim($row['id']).'",
                 		"Nafn": "'.trim($row['Nafn']).'",
                 		"Simi": "'.trim($row['Simi']).'",
                 		"Netfang": "'.trim($row['Netfang']).'",
-                		"Starfsheiti": "'.trim($row['Starfsheiti']).'",
+                		"Starfsheiti": "'.trim($row['StarfsHeiti']).'",
                 		"Starfsstod": "'.trim($row['Starfsstod']).'",
                 		"Deild": "'.trim($row['Deild']).'"
                 		},';
