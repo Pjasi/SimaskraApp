@@ -34,7 +34,7 @@ header("access-control-allow-origin: *");
 	//Load all departments from table
 	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName;");
 	$uniqueList = $uniqueListQuery->fetchAll(PDO::FETCH_ASSOC);
-	print_r($uniqueList[1]);
+	print_r(in_array("Awesome", $uniqueList));
 	echo "uniqueList done";
 
 /*
