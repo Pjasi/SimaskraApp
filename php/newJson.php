@@ -18,21 +18,18 @@ header("access-control-allow-origin: *");
   //--------------------------------------------------------------------------
   // 1) Connect to mysql database
   //--------------------------------------------------------------------------
-  //$con = mysql_connect($host,$user,$pass);
-  //$dbs = mysql_select_db($databaseName, $con);
   $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'landsnetsimaskra', 'kisi123');
   
   //--------------------------------------------------------------------------
   // 2) Get DA DATA
   //--------------------------------------------------------------------------
-  
-//mysql_set_charset("UTF8");
 
 	$data = '{"Users":[';
 
 	//Load all departments from table
 	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Deild ASC");
 
+    // Initialize json for each division and add division names to a vector
     $counter = 0;
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
 	    $uniqueList[$counter] = trim($row['Deild']);
@@ -42,7 +39,7 @@ header("access-control-allow-origin: *");
         $counter += 1;
     }
 
-
+    // Get all contacts and sort them into divisions
 	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
 
 	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
@@ -63,6 +60,7 @@ header("access-control-allow-origin: *");
 	    }
 
 	}
+	// Taking our extra commas and finising the json
 	for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
 	    $uniqueListJson[$iUnique] = rtrim($uniqueListJson[$iUnique], ','); // Taka ut seinustu kommuna
         $uniqueListJson[$iUnique] .=']},';
@@ -72,86 +70,6 @@ header("access-control-allow-origin: *");
     $data .=']}';
     echo $data;
 
-/*
-	$resultyfir = mysql_query("SELECT * FROM $tableName ");   
-	echo mysql_error();
-	          //query
-	$seenB4 = array("Netrekstur");
-	while( $rowyfir = mysql_fetch_row($resultyfir) )
-	{//rowyfir
-
-	if (in_array(trim($rowyfir[6],$seenB4)))
-	{
-        echo "Er i array";
-	}
-	else
-	{
-        echo "Er EKKI i array";
-	}
-	
-		$data .= '{
-		"Id": "'.trim($rowyfir[0]).'",
-		"Nafn": "'.trim($rowyfir[1]).'",
-		"Simi": "'.trim($rowyfir[2]).'",
-		"Netfang": "'.trim($rowyfir[3]).'",
-		"Starfsheiti": "'.trim($rowyfir[4]).'",
-		"Starfsstod": "'.trim($rowyfir[5]).'",
-		"Deild": "'.trim($rowyfir[6]).'"
-		},';		
-		
-	}//rowyfir
-	$data = rtrim($data, ','); // Taka ut seinustu kommuna
-	$data .=']},';
-	
-	$data .='{"items": [';
-	$resultyfir = mysql_query("SELECT * FROM $tableName ORDER BY Deild ASC");   
-	echo mysql_error();
-	          //query
-	while( $rowyfir = mysql_fetch_row($resultyfir) )
-	{//rowyfir
-	
-	
-		$data .= '{
-		"Id": "'.trim($rowyfir[0]).'",
-		"Nafn": "'.trim($rowyfir[1]).'",
-		"Simi": "'.trim($rowyfir[2]).'",
-		"Netfang": "'.trim($rowyfir[3]).'",
-		"Starfsheiti": "'.trim($rowyfir[4]).'",
-		"Starfsstod": "'.trim($rowyfir[5]).'",
-		"Deild": "'.trim($rowyfir[6]).'"
-		},';	
-		
-	}//rowyfir
-	$data = rtrim($data, ','); // Taka ut seinustu kommuna
-	$data .=']},';
-	
-	$data .='{"items": [';
-	$resultyfir = mysql_query("SELECT * FROM $tableName ORDER BY Starfsstod ASC");   
-	echo mysql_error();
-	          //query
-	while( $rowyfir = mysql_fetch_row($resultyfir) )
-	{//rowyfir
-	
-	
-		$data .= '{
-		"Id": "'.trim($rowyfir[0]).'",
-		"Nafn": "'.trim($rowyfir[1]).'",
-		"Simi": "'.trim($rowyfir[2]).'",
-		"Netfang": "'.trim($rowyfir[3]).'",
-		"Starfsheiti": "'.trim($rowyfir[4]).'",
-		"Starfsstod": "'.trim($rowyfir[5]).'",
-		"Deild": "'.trim($rowyfir[6]).'"
-		},';	
-		
-	}//rowyfir
-	$data = rtrim($data, ','); // Taka ut seinustu kommuna
-	$data .=']}';
-	$data .=']}';
-
-echo $data;
-
-mysql_close();
-	die();
-
-*/
+    // Close mysql connection
+    $db = null;
 ?>
