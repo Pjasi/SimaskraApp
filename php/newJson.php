@@ -37,11 +37,20 @@ header("access-control-allow-origin: *");
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
 	    $counter = 0;
 	    $uniqueList[$counter] = $row['Deild'];
-        echo $uniqueList[$counter].'  ';
         $counter += 1;
     }
 
 	echo "uniqueList done";
+
+	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
+
+	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
+
+	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
+	        echo $iUnique;
+	    }
+
+	}
 
 /*
 	$resultyfir = mysql_query("SELECT * FROM $tableName ");   
