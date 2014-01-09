@@ -40,7 +40,7 @@ header("access-control-allow-origin: *");
 	}
 	else
 	{
-	echo "Buu";
+	echo array_pop($uniqueList);
 	}
 	echo "uniqueList done";
 
