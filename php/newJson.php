@@ -29,7 +29,7 @@ header("access-control-allow-origin: *");
 //mysql_set_charset("UTF8");
 
 	$data = '{"Users":[';
-	  
+
 	$data .='{"items": [';
 	//Load all departments from table
 	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Deild ASC");
@@ -64,9 +64,14 @@ header("access-control-allow-origin: *");
 
 	}
 	for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
-	    echo $uniqueListJson[$iUnique];
-	    echo "NY DEILD";
+	    $uniqueListJson[$iUnique] = rtrim($uniqueListJson[$iUnique], ','); // Taka ut seinustu kommuna
+        $uniqueListJson[$iUnique] .=']},';
+        $data .= $uniqueListJson[$iUnique];
 	}
+    $data = rtrim($data, ','); // Taka ut seinustu kommuna
+    $data .=']}';
+    $data .=']}';
+    echo $data;
 
 /*
 	$resultyfir = mysql_query("SELECT * FROM $tableName ");   
