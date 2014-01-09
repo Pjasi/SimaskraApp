@@ -1,4 +1,4 @@
-$(document).on( 'pageinit','#divisions' ,function( e, data ) {
+$(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
 
     console.log("Divisons");
     //category = $.parseJSON(localStorage.innihald);
