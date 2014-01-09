@@ -32,7 +32,7 @@ header("access-control-allow-origin: *");
 	  
 	$data .='{"items": [';
 	//Load all departments from table
-	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName;");
+	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Deild ASC");
 
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
         echo $row['Deild'].'  '; //etc...
