@@ -34,8 +34,8 @@ header("access-control-allow-origin: *");
 	//Load all departments from table
 	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Deild ASC");
 
+    $counter = 0;
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
-	    $counter = 0;
 	    $uniqueList[$counter] = $row['Deild'];
         $counter += 1;
     }
@@ -45,7 +45,6 @@ header("access-control-allow-origin: *");
 	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
 
 	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
-        echo "Conunter: ".$counter;
 	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
 	        echo $iUnique;
 	    }
