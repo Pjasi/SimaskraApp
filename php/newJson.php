@@ -35,7 +35,7 @@ header("access-control-allow-origin: *");
 	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName;");
 
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
-        echo $row[1]; //etc...
+        echo $row['Deild'].'  '; //etc...
     }
 	$uniqueList = $uniqueListQuery->fetchAll(PDO::FETCH_ASSOC);
 
