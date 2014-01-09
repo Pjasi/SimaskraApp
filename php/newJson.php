@@ -18,7 +18,7 @@ header("access-control-allow-origin: *");
   //--------------------------------------------------------------------------
   // 1) Connect to mysql database
   //--------------------------------------------------------------------------
-  $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'landsnetsimaskra', 'kisi123');
+  $db = new PDO('mysql:host='.$host.';dbname='.$databaseName.';charset=utf8', $user, $pass);
   
   //--------------------------------------------------------------------------
   // 2) Get DA DATA
