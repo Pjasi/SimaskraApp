@@ -36,7 +36,9 @@ header("access-control-allow-origin: *");
     $counter = 0;
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
 	    $uniqueList[$counter] = trim($row['Deild']);
-	    $uniqueListJson[$counter] = '{"items": [';
+	    $uniqueListJson[$counter] = '{
+                    "DivisionName": "'.$uniqueList[$counter].'",
+	                "Division": [';
         $counter += 1;
     }
 
