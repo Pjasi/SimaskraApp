@@ -40,7 +40,6 @@ header("access-control-allow-origin: *");
         $counter += 1;
     }
 
-	echo "uniqueList done";
 
 	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
 
@@ -68,7 +67,6 @@ header("access-control-allow-origin: *");
         $data .= $uniqueListJson[$iUnique];
 	}
     $data = rtrim($data, ','); // Taka ut seinustu kommuna
-    $data .=']}';
     $data .=']}';
     echo $data;
 
