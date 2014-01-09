@@ -45,7 +45,7 @@ header("access-control-allow-origin: *");
 	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
 
 	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
-
+        echo "Conunter: ".$counter;
 	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
 	        echo $iUnique;
 	    }
