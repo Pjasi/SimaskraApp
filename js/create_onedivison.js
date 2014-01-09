@@ -1,6 +1,6 @@
-$(document).on( 'pageinit','#divisions' ,function( e, data ) {
+$(document).on( 'pageinit','#onedivision' ,function( e, data ) {
 
-    console.log("Divisons");
+    console.log("onedivision");
     //category = $.parseJSON(localStorage.innihald);
     //console.log(category);
 
@@ -21,19 +21,20 @@ $(document).on( 'pageinit','#divisions' ,function( e, data ) {
 
         // The markup we are going to inject into the content
         // area of the page.
-            markup = '<ul id="division_list"  data-role="listview" data-theme="a" >';
+            markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni">';
 
-
+        for (var key in dataDivision) {
+            console.log(key);
+        }
+        dataoneDivision = dataDivision[sessionStorage.division].Division;
             // The number of items in the category.
-            numItems = dataDivision.length;
+            numItems = dataoneDivision.length;
 
         // Generate a list item for each item in the category
         // and add it to our markup.
-        //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
         for ( var i = 0; i < numItems; i++ ) {
             //markup += ' <li><a href="undirflokkur-items.html" ><h4>'+cItems[i].name+'</h4></a></li>';
-            markup += ' <li data-icon="false" ><a class="division" id="'+i+'" href="#onedivision"><h4>'+dataDivision[i].DivisionName+'</h4></a></li>';
-            //console.log(cItems[i].name);
+            markup += ' <li data-icon="false"><a class="flokkur" id="'+ dataoneDivision[i].Id +'" href="#information" data-transition="none"  ><h4>'+ dataoneDivision[i].Nafn+'</h4></a></li>';
         }
        //console.log(cItems[i].name);
 
@@ -42,10 +43,10 @@ $(document).on( 'pageinit','#divisions' ,function( e, data ) {
 
         // Find the h1 element in our header and inject the name of
         // the category into it.
-        $header.find( "h1" ).html( "Deildir" );
+        $header.find( "h1" ).html( dataoneDivision[0].Deild );
         //console.log(markup);
         // Inject the category items markup into the content element.
-        $("#divisions_list").html( markup );
+        $("#onedivision_list").html( markup );
 
         // Pages are lazily enhanced. We call page() on the page
         // element to make sure it is always enhanced before we
@@ -68,7 +69,7 @@ $(document).on( 'pageinit','#divisions' ,function( e, data ) {
         //$.mobile.changePage( $page );
         //$content.find( ":jqmData(role=listview)" ).listview();
 
-        $("#divisions_list").trigger( 'create' );
+        $("#onedivision_list").trigger( 'create' );
         $page.page();
 
 

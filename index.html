@@ -16,6 +16,7 @@
     <script type="text/javascript" src="js/update.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_firstpage.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_divisons.js"></script><!-- Get data from server-->
+    <script type="text/javascript" src="js/create_onedivison.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_workplace.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_information.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_offers.js"></script><!-- Get data from server-->
@@ -35,6 +36,9 @@
         $(document).on('click','a.flokkur', function() {
             sessionStorage.flokkur = $(this).attr("id");
            // sessionStorage.haus = $(this).attr();
+        });
+        $(document).on('click','a.division', function() {
+            sessionStorage.division = $(this).attr("id");
         });
 
 
@@ -167,7 +171,27 @@
     </div><!-- /footer -->
 </div><!-- /Page 2-->
 
-<!-- Page 3, Page for names grouped by workplace-->
+<!-- Page 3, Page for names grouped by divisons-->
+<div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="onedivision" data-url="panel-fixed-page1">
+    <div data-role="header" data-theme="a" data-position="fixed" >
+        <h1>Deildir</h1>
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div><!-- /header -->
+    <div  data-role="content" id="onedivision_list">
+
+    </div>
+    <div data-role="footer" data-id="foo1" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a class="footertab" href="#featured" data-transition="none"  id="1">Stafrófsröð</a></li>
+                <li><a class="footertab" href="#divisions" data-transition="none" id="2">Deild</a></li>
+                <li><a class="footertab" href="#workplace" data-transition="none" id="3">Starfsstöð</a></li>
+            </ul>
+        </div>
+    </div><!-- /footer -->
+</div><!-- /Page 3-->
+
+<!-- Page 4, Page for names grouped by workplace-->
 <div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="workplace" data-url="panel-fixed-page1">
     <div data-role="header" data-theme="a" data-position="fixed" >
         <h1>Starfsstöð</h1>
@@ -185,9 +209,9 @@
             </ul>
         </div>
     </div><!-- /footer -->
-</div><!-- /Page 3-->
+</div><!-- /Page 4-->
 
-<!-- Page 4, Displays information on a employee-->
+<!-- Page 5, Displays information on a employee-->
 <div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="information" data-url="panel-fixed-page1">
     <div data-role="header" data-theme="a" data-position="fixed" >
         <h1></h1>
@@ -197,7 +221,7 @@
 
     </div>
 
-</div><!-- /Page 4-->
+</div><!-- /Page 5-->
 
 
 
