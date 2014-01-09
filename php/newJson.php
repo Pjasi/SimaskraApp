@@ -35,9 +35,11 @@ header("access-control-allow-origin: *");
 	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Deild ASC");
 
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
-        echo $row['Deild'].'  '; //etc...
+	    $counter = 0;
+	    $uniqueList[$counter] = $row['Deild'];
+        echo $uniqueList[$counter].'  ';
+        $counter += 1;
     }
-	$uniqueList = $uniqueListQuery->fetchAll(PDO::FETCH_ASSOC);
 
 	echo "uniqueList done";
 
