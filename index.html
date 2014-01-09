@@ -130,6 +130,8 @@
             name.givenName = "Jane";
             name.familyName = "Doe";
             contact.name = name;
+            contact.tphoneNumbers[0].value = 1
+            contact.tphoneNumbers[1].value = 2
 
             // save
             contact.save(onSaveSuccess,onSaveError);
