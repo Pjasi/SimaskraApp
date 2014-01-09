@@ -1,4 +1,6 @@
-﻿//Prufu fall til a� byrta loading screen � me�an vi� s�kjum g�gn
+﻿//TODO Move php files to the right server
+//TODO entrio og server mix herna, laga seinna
+//Prufu fall til ad birta loading screen a medan vid saekjum gogn
 function Update_Check()
 {
 	console.log("fallið update check");
@@ -37,9 +39,7 @@ function Update_Check()
 				//$.unblockUI();
 			}
 			sessionStorage.setItem("kisi","kisi"); 
-			
-			
-			
+
 		   
 		}
 		
@@ -55,10 +55,6 @@ function Update()
         url: 'http://entrio.appservicestation.com/updateMulti.php',
         dataType: 'text',
         success: function(msg){
-            //$("#kisi").html(msg.a);
-            //alert(msg.a);
-            // unblock when remote call returns
-
 
             localStorage.innihald = msg;
             data = $.parseJSON(msg);
@@ -68,7 +64,21 @@ function Update()
             console.log("unblock");
 
             create_firstpage();
-            //$.unblockUI();
+
+        }
+
+    });
+    $.ajax({
+        url: 'http://85.220.27.109:2205/simaskra/simaskraapp/php/grabDivisions.php',
+        dataType: 'text',
+        success: function(msg){
+
+            localStorage.Divisions = msg;
+            //console.log(localStorage.innihald);
+
+            console.log("Fyllainngogn Divisions keyrdi");
+            console.log("unblock");
+
 
 
 

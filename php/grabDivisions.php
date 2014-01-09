@@ -24,7 +24,7 @@ header("access-control-allow-origin: *");
   // 2) Get DA DATA
   //--------------------------------------------------------------------------
 
-	$data = '{"Users":[';
+	$data = '{"Divisions":[';
 
 	//Load all departments from table
 	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Deild ASC");
