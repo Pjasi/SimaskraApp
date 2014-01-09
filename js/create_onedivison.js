@@ -1,4 +1,4 @@
-$(document).on( 'pageinit','#onedivision' ,function( e, data ) {
+$(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
 
     console.log("onedivision");
     //category = $.parseJSON(localStorage.innihald);
