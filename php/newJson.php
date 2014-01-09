@@ -36,7 +36,8 @@ header("access-control-allow-origin: *");
 
     $counter = 0;
 	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
-	    $uniqueList[$counter] = $row['Deild'];
+	    $uniqueList[$counter] = trim($row['Deild']);
+	    $uniqueListJson[$counter] = '{"items": [';
         $counter += 1;
     }
 
@@ -46,9 +47,25 @@ header("access-control-allow-origin: *");
 
 	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
 	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
-	        echo $iUnique;
+	        if ($uniqueList[$iUnique] == trim($row[6]){
+	            $uniqueListJson[$iUnique] .= '{
+                		"Id": "'.trim($row[0]).'",
+                		"Nafn": "'.trim($row[1]).'",
+                		"Simi": "'.trim($row[2]).'",
+                		"Netfang": "'.trim($row[3]).'",
+                		"Starfsheiti": "'.trim($row[4]).'",
+                		"Starfsstod": "'.trim($row[5]).'",
+                		"Deild": "'.trim($row[6]).'"
+                		},';
+                break;
+	        }
+
 	    }
 
+	}
+	for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
+	    echo $uniqueListJson[$iUnique];
+	    echo "NY DEILD";
 	}
 
 /*
