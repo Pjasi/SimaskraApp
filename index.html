@@ -144,7 +144,7 @@
             tPhoneNumbers[1] = new ContactField('mobile', '', false);
             contact.phoneNumbers = tPhoneNumbers;
 
-            var email = ContactField('email',cItems.Netfang,false);
+            var email = ContactField('work',cItems.Netfang,false);
             contact.emails = email;
 
             var addresses = [1];
@@ -157,8 +157,9 @@
             contact.addresses = addresses;
 
             var organizations = [];
-            organizations[0] = new ContactField('department', cItems.Deild, false);
-            organizations[1] = new ContactField('title', cItems.Starfsheiti, false);
+            organizations[0] = new ContactField('name', 'Landsnet', false);
+            organizations[1] = new ContactField('department', cItems.Deild, false);
+            organizations[2] = new ContactField('title', cItems.Starfsheiti, false);
             contact.organizations = organizations;
 
 
@@ -168,7 +169,7 @@
         }
 
         function onSaveSuccess(contact) {
-            alert(contact.name + " var vistaður");
+            alert(contact.name.givenName + " var vistaður");
         }
 
         // onSaveError: Failed to get the contacts
