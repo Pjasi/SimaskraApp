@@ -144,8 +144,8 @@
             tPhoneNumbers[1] = new ContactField('mobile', '', false);
             contact.phoneNumbers = tPhoneNumbers;
 
-            var email = ContactField('work',cItems.Netfang,true);
-            contact.email = email;
+            var email = ContactField('email',cItems.Netfang,true);
+            contact.emails = email;
 
             var addresses = [1];
             var address = new ContactAddress();
@@ -156,11 +156,12 @@
             addresses[0] =  address;
             contact.addresses = addresses;
 
-            var org = new ContactOrganization();
-            org.name = 'Landsnet';
-            org.title = cItems.Starfsheiti;
-            org.department = cItems.Deild;
-            contact.organizations = org;
+            var organizations = [];
+            organizations[0] = new ContactField('name', 'Landsnet', false);
+            organizations[1] = new ContactField('department', cItems.Deild, false);
+            organizations[2] = new ContactField('title', cItems.Starfsheiti, false);
+            contact.organizations = organizations;
+
 
 
             // save to device
