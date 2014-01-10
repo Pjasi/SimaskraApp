@@ -17,7 +17,8 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
 
         // Get the header for the page.
         $header = $page.children( ":jqmData(role=header)" ),
-        $current = sessionStorage.flokkur;
+        //TODO smellti -1 til ad laga...... slaemur stadur
+        $current = sessionStorage.flokkur-1;
 
         // The array of items for this category.
         cItems = dataAlpha.items,
@@ -42,7 +43,7 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
         markup += "<li><a href=\"mailto:" +  cItems[$current].Netfang + "\""+ "><h3>Netfang</h3><p>" +  cItems[$current].Netfang + "</p></a></li>";
         markup += "<li><a href=\"tel:+354" +  cItems[$current].Simi + "\""+ "><h3>Simi</h3><p>" +  cItems[$current].Simi + "</p></a></li>";
         markup += "<li><a href=\"sms:+354" +  cItems[$current].Simi + "\""+ "><h3>Sms</h3><p>" +  cItems[$current].Simi + "</p></a></li>";
-        markup += "<li><a id=\"contact_save\" href=\"javascript:save_contact("+ $current +");\" ><h3>Vista sem tengilid</h3></a></li>";
+        markup += "<li><a current=\""  +$current+ "\" id=\"contact_save\" href=\"javascript:save_contact();\" ><h3>Vista sem tengilid</h3></a></li>";
         markup += "</ul>";
         // Find the h1 element in our header and inject the name of
         // the category into it.

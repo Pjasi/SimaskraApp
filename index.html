@@ -121,32 +121,17 @@
             document.addEventListener("deviceready", onDeviceReady, false);
         }
 
-        function save_contact(id)
+        function save_contact()
         {
             // Grab json from local storage
+            id =  $(this).attr("current");
             data = $.parseJSON(localStorage.innihald);
             //TODO muna, ef breyting er a json tharf ad mixa her
             dataAlpha = data.Users[0];
             cItems = dataAlpha.items[id];
 
 
-            var myContact = navigator.contacts.create({
-                "displayName":null,
-                "name":{"givenName":"Intellectual",
-                    "formatted":"Intellectual Mollusc",
-                    "middleName":null,
-                    "familyName":"Mollusc","" +
-                            "honorificPrefix":null,
-                "honorificSuffix":null},
-        "nickname":null,
-                "phoneNumbers":[{"type":"other","value":"00353 2345235","id":0,"pref":false},
-            {"type":"mobile","value":" ","id":1,"pref":false}],
-                "emails":[{"type":"home","value":"work@intellectualmollusc.net","id":0,"pref":false}],
-                "addresses":[{"postalCode":"","type":"work","id":0,"locality":"cork","pref":"false",
-            "streetAddress":" ","region":" ","country":"Ireland"}],"ims":null,
-                "organizations":[{"name":"School","title":"Student","type":null,
-            "pref":"false","department":"Kitchen"}],"birthday":null,"note":"YourRefUniqueID:47831","categories":null,
-                "urls":[{"type":"other","value":"intellectualmollusc.net","id":0,"pref":false}]});
+            var myContact = navigator.contacts.create({"displayName":null,"name":{"givenName":"Intellectual","formatted":"Intellectual Mollusc","middleName":null,"familyName":"Mollusc","honorificPrefix":null,"honorificSuffix":null},"nickname":null,"phoneNumbers":[{"type":"other","value":"00353 2345235","id":0,"pref":false},{"type":"mobile","value":" ","id":1,"pref":false}],"emails":[{"type":"home","value":"work@intellectualmollusc.net","id":0,"pref":false}],"addresses":[{"postalCode":"","type":"work","id":0,"locality":"cork","pref":"false","streetAddress":" ","region":" ","country":"Ireland"}],"ims":null,"organizations":[{"name":"School","title":"Student","type":null,"pref":"false","department":"Kitchen"}],"birthday":null,"note":"YourRefUniqueID:47831","categories":null,"urls":[{"type":"other","value":"intellectualmollusc.net","id":0,"pref":false}]});
             myContact.save();
             console.log("The contact, " + myContact.name.givenName + ", has been created");
 
