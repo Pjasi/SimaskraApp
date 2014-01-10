@@ -1,4 +1,4 @@
-$(document).on( 'pageinit','#information' ,function( e, data ) {
+$(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
 
     console.log("information");
     //category = $.parseJSON(localStorage.innihald);

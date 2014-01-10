@@ -1,4 +1,4 @@
-$(document).on( 'pageinit','#workplace' ,function( e, data ) {
+$(document).on( 'pagebeforeshow','#workplace' ,function( e, data ) {
 
     console.log("Workplace");
     //category = $.parseJSON(localStorage.innihald);

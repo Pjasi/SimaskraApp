@@ -1,4 +1,4 @@
-﻿﻿﻿function create_firstpage()
+﻿function create_firstpage()
 {
 
     console.log("HeimaSidakeyrist");
