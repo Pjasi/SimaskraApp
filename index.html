@@ -121,25 +121,52 @@
             document.addEventListener("deviceready", onDeviceReady, false);
         }
 
-        function save_contact()
+        function save_contact(id)
         {
+            // Grab json from local storage
+            data = $.parseJSON(localStorage.innihald);
+            //TODO muna, ef breyting er a json tharf ad mixa her
+            dataAlpha = data.Users[0];
+            cItems = dataAlpha.items[id];
+
+
+            var myContact = navigator.contacts.create({
+                "displayName":null,
+                "name":{"givenName":"Intellectual",
+                    "formatted":"Intellectual Mollusc",
+                    "middleName":null,
+                    "familyName":"Mollusc","" +
+                            "honorificPrefix":null,
+                "honorificSuffix":null},
+        "nickname":null,
+                "phoneNumbers":[{"type":"other","value":"00353 2345235","id":0,"pref":false},
+            {"type":"mobile","value":" ","id":1,"pref":false}],
+                "emails":[{"type":"home","value":"work@intellectualmollusc.net","id":0,"pref":false}],
+                "addresses":[{"postalCode":"","type":"work","id":0,"locality":"cork","pref":"false",
+            "streetAddress":" ","region":" ","country":"Ireland"}],"ims":null,
+                "organizations":[{"name":"School","title":"Student","type":null,
+            "pref":"false","department":"Kitchen"}],"birthday":null,"note":"YourRefUniqueID:47831","categories":null,
+                "urls":[{"type":"other","value":"intellectualmollusc.net","id":0,"pref":false}]});
+            myContact.save();
+            console.log("The contact, " + myContact.name.givenName + ", has been created");
+
             // create a new contact object
             var contact = navigator.contacts.create();
-            contact.displayName = "Plumber";
-            contact.nickname = "Plumber";            // specify both to support all devices
+            contact.displayName = cItems.Nafn;
+            contact.nickname = cItems.Nafn;            // specify both to support all devices
 
             // populate some fields
             var name = new ContactName();
-            name.givenName = "Jane";
-            name.familyName = "Doe";
+            name.givenName = cItems.Nafn;
             contact.name = name;
+
 
             // save to device
             contact.save(onSaveSuccess,onSaveError);
         }
 
         function onSaveSuccess(contact) {
-            alert("Save Success");
+            alert(contact.name + " var vistaður");
         }
 
         // onSaveError: Failed to get the contacts
