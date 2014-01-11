@@ -157,11 +157,13 @@
             addresses[0] =  address;
             contact.addresses = addresses;
 
+            var organizationsss = [1];
             var organizations = new ContactOrganization();
             organizations.name = 'Landsnet';
             organizations.department = cItems.Deild;
             organizations.title = cItems.Starfsheiti;
-            contact.organizations = organizations;
+            organizationsss[0] = organizations
+            contact.organizations = organizationsss;
 
 
 
