@@ -144,8 +144,9 @@
             tPhoneNumbers[1] = new ContactField('mobile', '', false);
             contact.phoneNumbers = tPhoneNumbers;
 
-            var email = ContactField('work',cItems.Netfang,false);
-            contact.emails = email;
+            var emails = [];
+            emails[0] == ContactField('email',cItems.Netfang,false);
+            contact.emails = emails;
 
             var addresses = [1];
             var address = new ContactAddress();
