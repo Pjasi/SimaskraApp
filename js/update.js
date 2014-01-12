@@ -44,7 +44,7 @@ function Update()
 
     });
     $.ajax({
-        url: 'http://http://85.220.27.109:2205/simaskra/simaskraapp/php/getDataJson.php',
+        url: 'http://85.220.27.109:2205/simaskra/simaskraapp/php/getdatajson.php',
         dataType: 'text',
         success: function(msg){
 
