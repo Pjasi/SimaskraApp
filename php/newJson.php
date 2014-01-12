@@ -71,7 +71,7 @@ header("access-control-allow-origin: *");
         $data .= $uniqueListJson[$iUnique];
 	}
 
-
+    $data = rtrim($data, ','); // Taka ut seinustu kommuna
     $data .=']}';
 
     $allData .= $data;
