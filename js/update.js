@@ -43,4 +43,17 @@ function Update()
         }
 
     });
+    $.ajax({
+        url: 'http://http://85.220.27.109:2205/simaskra/simaskraapp/php/getDataJson.php',
+        dataType: 'text',
+        success: function(msg){
+
+            localStorage.test = msg;
+            console.log(localStorage.test);
+            console.log(localStorage.test.Divisions);
+
+
+        }
+
+    });
 };
