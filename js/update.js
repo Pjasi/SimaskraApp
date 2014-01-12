@@ -48,7 +48,7 @@ function Update()
         dataType: 'text',
         success: function(msg){
 
-            localStorage.test = msg;
+            localStorage.test = $.parseJSON(msg);
             console.log(localStorage.test);
             console.log(localStorage.test.Divisions);
 
