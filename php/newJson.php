@@ -75,7 +75,7 @@ header("access-control-allow-origin: *");
     $data = rtrim($data, ','); // Taka ut seinustu kommuna
     $data .=']},';
 
-    	$data = '{"Workplace":[';
+    	$data2 = '{"Workplace":[';
 
     	//Load all departments from table
     	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem2 FROM $tableName ORDER BY Starfsstod ASC");
@@ -117,13 +117,14 @@ header("access-control-allow-origin: *");
     	for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
     	    $uniqueListJsonWP[$iUnique] = rtrim($uniqueListJsonWP[$iUnique], ','); // Taka ut seinustu kommuna
             $uniqueListJsonWP[$iUnique] .=']},';
-            $data .= $uniqueListJsonWP[$iUnique];
+            $data2 .= $uniqueListJsonWP[$iUnique];
     	}
 
-        $data = rtrim($data, ','); // Taka ut seinustu kommuna
-        $data .=']}';
+        $data2 = rtrim($data, ','); // Taka ut seinustu kommuna
+        $data2 .=']}';
 
     $allData .= $data;
+    $allData .= $data2;
     $allData .= ']}';
     echo $allData;
 
