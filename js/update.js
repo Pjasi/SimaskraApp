@@ -49,8 +49,8 @@ function Update()
         success: function(msg){
 
             localStorage.test = $.parseJSON(msg);
-            console.log(localStorage.test);
-            console.log(localStorage.test.Divisions);
+            console.log(localStorage.test.Contacts);
+            console.log(localStorage.test.Contacts.Divisions);
 
 
         }
