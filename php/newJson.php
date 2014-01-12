@@ -11,7 +11,8 @@ header("access-control-allow-origin: *");
 
   $databaseName = "test";
   $tableName = "landsnetSimaskra";
-  $uniqueItem = "Deild";
+  $uniqueItem1 = "Deild";
+  $uniqueItem2 = "Starfsstod";
 
 
 
@@ -29,7 +30,7 @@ header("access-control-allow-origin: *");
 	$data = '{"Divisions":[';
 
 	//Load all departments from table
-	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Deild ASC");
+	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem1 FROM $tableName ORDER BY Deild ASC");
 
     // Initialize json for each division and add division names to a vector
     $counter = 0;
@@ -77,7 +78,7 @@ header("access-control-allow-origin: *");
     	$data = '{"Workplace":[';
 
     	//Load all departments from table
-    	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Starfsstod ASC");
+    	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem2 FROM $tableName ORDER BY Starfsstod ASC");
 
         // Initialize json for each division and add division names to a vector
         $counter = 0;
