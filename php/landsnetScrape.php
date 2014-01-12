@@ -82,7 +82,7 @@ for($i=0; $i<$counter; $i++)
 }
 
 
-print_r($division);
+print_r($email);
   //--------------------------------------------------------------------------
   // Example php script for fetching data from mysql database
   //--------------------------------------------------------------------------
