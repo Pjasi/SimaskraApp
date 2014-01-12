@@ -120,7 +120,7 @@ header("access-control-allow-origin: *");
             $data2 .= $uniqueListJsonWP[$iUnique];
     	}
 
-        $data2 = rtrim($data, ','); // Taka ut seinustu kommuna
+        $data2 = rtrim($data2, ','); // Taka ut seinustu kommuna
         $data2 .=']}';
 
     $allData .= $data;
