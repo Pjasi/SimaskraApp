@@ -72,7 +72,55 @@ header("access-control-allow-origin: *");
 	}
 
     $data = rtrim($data, ','); // Taka ut seinustu kommuna
-    $data .=']}';
+    $data .=']},';
+
+    	$data = '{"Workplace":[';
+
+    	//Load all departments from table
+    	$uniqueListQuery = $db->query("SELECT DISTINCT $uniqueItem FROM $tableName ORDER BY Starfsstod ASC");
+
+        // Initialize json for each division and add division names to a vector
+        $counter = 0;
+    	while($row = $uniqueListQuery->fetch(PDO::FETCH_ASSOC)) {
+    	    $uniqueListWP[$counter] = trim($row['Starfsstod']);
+    	    $uniqueListJsonWP[$counter] = '{
+                        "WorkplaceName": "'.$uniqueListWP[$counter].'",
+    	                "Workplace": [';
+            $counter += 1;
+        }
+
+        // Get all contacts and sort them into divisions
+    	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
+
+        $count = 0;
+    	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
+    	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
+    	        if ($uniqueListWP[$iUnique] == trim($row['Deild'])){
+    	            $uniqueListJsonWP[$iUnique] .= '{
+                    		"Id": "'.$count.'",
+                    		"Nafn": "'.trim($row['Nafn']).'",
+                    		"Simi": "'.trim($row['Simi']).'",
+                    		"Netfang": "'.trim($row['Netfang']).'",
+                    		"Starfsheiti": "'.trim($row['StarfsHeiti']).'",
+                    		"Starfsstod": "'.trim($row['Starfsstod']).'",
+                    		"Deild": "'.trim($row['Deild']).'"
+                    		},';
+                    $count++;
+                    break;
+    	        }
+
+    	    }
+
+    	}
+    	// Taking our extra commas and finising the json
+    	for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
+    	    $uniqueListJsonWP[$iUnique] = rtrim($uniqueListJsonWP[$iUnique], ','); // Taka ut seinustu kommuna
+            $uniqueListJsonWP[$iUnique] .=']},';
+            $data .= $uniqueListJsonWP[$iUnique];
+    	}
+
+        $data = rtrim($data, ','); // Taka ut seinustu kommuna
+        $data .=']}';
 
     $allData .= $data;
     $allData .= ']}';
