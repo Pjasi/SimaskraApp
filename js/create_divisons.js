@@ -25,7 +25,7 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
 
 
             // The number of items in the category.
-            numItems = dataDivision.length;
+            numItems = dataDivision.length-1;
 
         // Generate a list item for each item in the category
         // and add it to our markup.

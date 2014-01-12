@@ -122,11 +122,11 @@
 
         function save_contact(id)
         {
-            // Grab json from local storage
-            data = $.parseJSON(localStorage.innihald);
-            //TODO muna, ef breyting er a json tharf ad mixa her
-            dataAlpha = data.Users[0];
-            cItems = dataAlpha.items[id];
+            data = $.parseJSON(localStorage.Divisions);
+            dataDivision = data.Divisions;
+            numItems = dataDivision.length -1;
+
+            cItems =  cItems = dataDivision[numItems].Division;
 
             // create a new contact object
             var contact = navigator.contacts.create();
