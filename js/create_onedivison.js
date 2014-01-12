@@ -40,7 +40,6 @@ $(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
 
         markup += "</ul>";
 
-
         // Find the h1 element in our header and inject the name of
         // the category into it.
         $header.find( "h1" ).html( dataoneDivision[0].Deild );
