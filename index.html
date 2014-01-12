@@ -126,8 +126,8 @@
             dataDivision = data.Divisions;
             numItems = dataDivision.length -1;
 
-            cItems =  dataDivision[numItems].Division;
-
+            dataOneDivision =  dataDivision[numItems].Division;
+            cItems = dataOneDivision[id];
             // create a new contact object
             var contact = navigator.contacts.create();
             contact.displayName = cItems.Nafn;

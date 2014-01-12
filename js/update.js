@@ -50,26 +50,8 @@ function Update_Check()
 function Update()
 {
 	console.log("fallid update");
-
     $.ajax({
-        url: 'http://entrio.appservicestation.com/updateMulti.php',
-        dataType: 'text',
-        success: function(msg){
-
-            localStorage.innihald = msg;
-            data = $.parseJSON(msg);
-            //console.log(localStorage.innihald);
-
-            console.log("Fyllainngogn keyrdi");
-            console.log("unblock");
-
-            create_firstpage();
-
-        }
-
-    });
-    $.ajax({
-        url: 'http://85.220.27.109:2205/simaskra/simaskraapp/php/grabDivisions.php',
+        url: 'http://entrio.appservicestation.com/grabDivisions.php',
         dataType: 'text',
         success: function(msg){
 
@@ -78,9 +60,6 @@ function Update()
 
             console.log("Fyllainngogn Divisions keyrdi");
             console.log("unblock");
-
-
-
 
         }
 
