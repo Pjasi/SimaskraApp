@@ -9,9 +9,11 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
     // content into is specified in the hash before the '?'.
     pageSelector = information;//urlObj.hash.replace( /\?.*$/, "" );
 
-    data = $.parseJSON(localStorage.innihald);
-    dataAlpha = data.Users[0];
-    if ( dataAlpha ) {
+    data = $.parseJSON(localStorage.Divisions);
+    dataDivision = data.Divisions;
+    numItems = dataDivision.length -1;
+    //console.log(dataDivision);
+    if ( dataDivision ) {
         // Get the page we are going to dump our content into.
         var $page = $( pageSelector ),
 
@@ -20,8 +22,9 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
         //TODO smellti -1 til ad laga...... slaemur stadur
         $current = sessionStorage.flokkur;
 
+        console.log(sessionStorage.division);
         // The array of items for this category.
-        cItems = dataAlpha.items,
+        cItems = dataDivision[numItems].Division;
 
         /*
         markup =" <Strong>Nafn: " + cItems[$current].Nafn + "</br>";

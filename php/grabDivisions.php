@@ -42,11 +42,12 @@ header("access-control-allow-origin: *");
     // Get all contacts and sort them into divisions
 	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
 
+    $count = 0;
 	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
 	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
 	        if ($uniqueList[$iUnique] == trim($row['Deild'])){
 	            $uniqueListJson[$iUnique] .= '{
-                		"Id": "'.trim($row['id']).'",
+                		"Id": "'.$count.'",
                 		"Nafn": "'.trim($row['Nafn']).'",
                 		"Simi": "'.trim($row['Simi']).'",
                 		"Netfang": "'.trim($row['Netfang']).'",
@@ -54,6 +55,7 @@ header("access-control-allow-origin: *");
                 		"Starfsstod": "'.trim($row['Starfsstod']).'",
                 		"Deild": "'.trim($row['Deild']).'"
                 		},';
+                $count++;
                 break;
 	        }
 
@@ -67,22 +69,25 @@ header("access-control-allow-origin: *");
         $data .= $uniqueListJson[$iUnique];
 	}
 
-     $data. = '{
+     $data .= '{
                         "DivisionName": "Stafrof",
     	                "Division": [';
 	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
 
+    $count = 0;
     while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
 
-        $data.= '{
-                        		"Id": "'.trim($row['id']).'",
-                        		"Nafn": "'.trim($row['Nafn']).'",
-                        		"Simi": "'.trim($row['Simi']).'",
-                        		"Netfang": "'.trim($row['Netfang']).'",
-                        		"Starfsheiti": "'.trim($row['StarfsHeiti']).'",
-                        		"Starfsstod": "'.trim($row['Starfsstod']).'",
-                        		"Deild": "'.trim($row['Deild']).'"
-                        		},';
+        $data .= '{
+                    "Id": "'.$count.'",
+                    "Nafn": "'.trim($row['Nafn']).'",
+                    "Simi": "'.trim($row['Simi']).'",
+                    "Netfang": "'.trim($row['Netfang']).'",
+                    "Starfsheiti": "'.trim($row['StarfsHeiti']).'",
+                    "Starfsstod": "'.trim($row['Starfsstod']).'",
+                    "Deild": "'.trim($row['Deild']).'"
+                    },';
+        $count++;
+
 
     }
 
