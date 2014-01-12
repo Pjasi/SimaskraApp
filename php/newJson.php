@@ -24,6 +24,8 @@ header("access-control-allow-origin: *");
   // 2) Get DA DATA
   //--------------------------------------------------------------------------
 
+    $allData = '{"Contacts":[';
+
 	$data = '{"Divisions":[';
 
 	//Load all departments from table
@@ -71,7 +73,10 @@ header("access-control-allow-origin: *");
 
 
     $data .=']}';
-    echo $data;
+
+    $allData .= $data;
+    $allData .= ']}';
+    echo $allData;
 
     // Close mysql connection
     $db = null;
