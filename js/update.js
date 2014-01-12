@@ -49,7 +49,10 @@ function Update()
         success: function(msg){
 
             localStorage.test = $.parseJSON(msg);
-            console.log(localStorage.test.Contacts);
+            console.log(localStorage.test);
+            for ( property in localStorage.test ) {
+                console.log( property ); // Outputs: foo, fiz or fiz, foo
+            }
             console.log(localStorage.test.Contacts.Divisions);
 
 
