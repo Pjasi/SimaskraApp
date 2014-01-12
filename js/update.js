@@ -50,6 +50,7 @@ function Update_Check()
 function Update()
 {
 	console.log("fallid update");
+
     $.ajax({
         url: 'http://entrio.appservicestation.com/grabDivisions.php',
         dataType: 'text',
@@ -58,8 +59,12 @@ function Update()
             localStorage.Divisions = msg;
             //console.log(localStorage.innihald);
 
+            create_firstpage();
             console.log("Fyllainngogn Divisions keyrdi");
             console.log("unblock");
+
+
+
 
         }
 

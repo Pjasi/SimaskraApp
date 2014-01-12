@@ -9,11 +9,11 @@
 	// the DOM. The id of the page we are going to write our
 	// content into is specified in the hash before the '?'.
 	pageSelector = featured;//urlObj.hash.replace( /\?.*$/, "" );
-	data = $.parseJSON(localStorage.innihald);
-    dataAlpha = data.Users[0];
+    data = $.parseJSON(localStorage.Divisions);
+    dataDivision = data.Divisions;
+    numItemss = dataDivision.length -1;
 
-    console.log(data);
-	if ( data ) {
+	if ( dataDivision ) {
         console.log("Heimaif");
 		// Get the page we are going to dump our content into.
 		var $page = $( pageSelector ),
@@ -25,7 +25,7 @@
 			//$content = $page.children( ":jqmData(role=id)" ),
 
 			// The array of items for this category.
-			cItems = dataAlpha.items,
+            cItems = dataDivision[numItemss].Division;
 
 			// The number of items in the category.
 			numItems = cItems.length;
