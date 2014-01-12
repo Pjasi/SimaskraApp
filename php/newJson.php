@@ -126,7 +126,6 @@ header("access-control-allow-origin: *");
 
     // All contacts in alphabet order
     $data3 = '{"Alphabet":[';
-    $data3 .= '
 
     	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
 
