@@ -7,7 +7,7 @@ $(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
     // The pages we use to display our content are already in
     // the DOM. The id of the page we are going to write our
     // content into is specified in the hash before the '?'.
-    pageSelector = divisions;//urlObj.hash.replace( /\?.*$/, "" );
+    pageSelector = onedivision;//urlObj.hash.replace( /\?.*$/, "" );
 
     data = $.parseJSON(localStorage.Divisions);
     dataDivision = data.Divisions;
@@ -42,7 +42,8 @@ $(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
 
         // Find the h1 element in our header and inject the name of
         // the category into it.
-        $header.find( "h1" ).html( dataoneDivision[0].Deild );
+        $textforhader = dataoneDivision[0].Deild;
+        $header.find( "h1" ).html($textforhader).text();
         //console.log(markup);
         // Inject the category items markup into the content element.
         $("#onedivision_list").html( markup );
