@@ -96,7 +96,7 @@ header("access-control-allow-origin: *");
         $count = 0;
     	while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
     	    for ($iUnique = 0; $iUnique < $counter; $iUnique++) {
-    	        if ($uniqueListWP[$iUnique] == trim($row['Deild'])){
+    	        if ($uniqueListWP[$iUnique] == trim($row['Starfsstod'])){
     	            $uniqueListJsonWP[$iUnique] .= '{
                     		"Id": "'.$count.'",
                     		"Nafn": "'.trim($row['Nafn']).'",
