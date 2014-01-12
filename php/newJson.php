@@ -121,10 +121,40 @@ header("access-control-allow-origin: *");
     	}
 
         $data2 = rtrim($data2, ','); // Taka ut seinustu kommuna
-        $data2 .=']}';
+        $data2 .=']},';
+
+
+    // All contacts in alphabet order
+    $data3 = '{"Alphabet":[';
+    $data3 .= '
+
+    	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
+
+        $count = 0;
+        while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
+
+            $data3 .= '{
+                        "Id": "'.$count.'",
+                        "Nafn": "'.trim($row['Nafn']).'",
+                        "Simi": "'.trim($row['Simi']).'",
+                        "Netfang": "'.trim($row['Netfang']).'",
+                        "Starfsheiti": "'.trim($row['StarfsHeiti']).'",
+                        "Starfsstod": "'.trim($row['Starfsstod']).'",
+                        "Deild": "'.trim($row['Deild']).'"
+                        },';
+            $count++;
+
+
+        }
+
+
+        $data3 = rtrim($data3, ','); // Taka ut seinustu kommuna
+
+        $data3 .=']}';
 
     $allData .= $data;
     $allData .= $data2;
+    $allData .= $data3;
     $allData .= ']}';
     echo $allData;
 
