@@ -18,7 +18,7 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
         // Get the header for the page.
         $header = $page.children( ":jqmData(role=header)" ),
         //TODO smellti -1 til ad laga...... slaemur stadur
-        $current = sessionStorage.flokkur-1;
+        $current = sessionStorage.flokkur;
 
         // The array of items for this category.
         cItems = dataAlpha.items,

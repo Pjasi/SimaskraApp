@@ -48,51 +48,9 @@ mysql_set_charset("UTF8");
 		
 	}//rowyfir
 	$data = rtrim($data, ','); // Taka ut seinustu kommuna
-	$data .=']},';
-	
-	$data .='{"items": [';
-	$resultyfir = mysql_query("SELECT * FROM $tableName ORDER BY Deild ASC");   
-	echo mysql_error();
-	          //query
-	while( $rowyfir = mysql_fetch_row($resultyfir) )
-	{//rowyfir
-	
-	
-		$data .= '{
-		"Id": "'.trim($rowyfir[0]).'",
-		"Nafn": "'.trim($rowyfir[1]).'",
-		"Simi": "'.trim($rowyfir[2]).'",
-		"Netfang": "'.trim($rowyfir[3]).'",
-		"Starfsheiti": "'.trim($rowyfir[4]).'",
-		"Starfsstod": "'.trim($rowyfir[5]).'",
-		"Deild": "'.trim($rowyfir[6]).'"
-		},';	
-		
-	}//rowyfir
-	$data = rtrim($data, ','); // Taka ut seinustu kommuna
-	$data .=']},';
-	
-	$data .='{"items": [';
-	$resultyfir = mysql_query("SELECT * FROM $tableName ORDER BY Starfsstod ASC");   
-	echo mysql_error();
-	          //query
-	while( $rowyfir = mysql_fetch_row($resultyfir) )
-	{//rowyfir
-	
-	
-		$data .= '{
-		"Id": "'.trim($rowyfir[0]).'",
-		"Nafn": "'.trim($rowyfir[1]).'",
-		"Simi": "'.trim($rowyfir[2]).'",
-		"Netfang": "'.trim($rowyfir[3]).'",
-		"Starfsheiti": "'.trim($rowyfir[4]).'",
-		"Starfsstod": "'.trim($rowyfir[5]).'",
-		"Deild": "'.trim($rowyfir[6]).'"
-		},';	
-		
-	}//rowyfir
-	$data = rtrim($data, ','); // Taka ut seinustu kommuna
 	$data .=']}';
+	
+
 	$data .=']}';
 
 echo $data;

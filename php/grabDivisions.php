@@ -66,7 +66,29 @@ header("access-control-allow-origin: *");
         $uniqueListJson[$iUnique] .=']},';
         $data .= $uniqueListJson[$iUnique];
 	}
+
+     $data. = '{
+                        "DivisionName": "Stafrof",
+    	                "Division": [';
+	$allItemsFromTable = $db->query("SELECT * FROM $tableName ORDER BY Nafn ASC");
+
+    while($row = $allItemsFromTable->fetch(PDO::FETCH_ASSOC)) {
+
+        $data.= '{
+                        		"Id": "'.trim($row['id']).'",
+                        		"Nafn": "'.trim($row['Nafn']).'",
+                        		"Simi": "'.trim($row['Simi']).'",
+                        		"Netfang": "'.trim($row['Netfang']).'",
+                        		"Starfsheiti": "'.trim($row['StarfsHeiti']).'",
+                        		"Starfsstod": "'.trim($row['Starfsstod']).'",
+                        		"Deild": "'.trim($row['Deild']).'"
+                        		},';
+
+    }
+
+
     $data = rtrim($data, ','); // Taka ut seinustu kommuna
+
     $data .=']}';
     echo $data;
 
