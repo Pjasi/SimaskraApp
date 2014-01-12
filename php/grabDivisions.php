@@ -90,6 +90,7 @@ header("access-control-allow-origin: *");
     $data = rtrim($data, ','); // Taka ut seinustu kommuna
 
     $data .=']}';
+    $data .=']}';
     echo $data;
 
     // Close mysql connection
