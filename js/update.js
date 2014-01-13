@@ -7,10 +7,11 @@
 
 			category = $.parseJSON(msg);
 			sessionStorage.timi = category.lastchange.timi;
-            if(sessionStorage.timi == 1) //ta uppfaera nuna alltaf uppfaert
+            if(sessionStorage.uppfaera == 1) //ta uppfaera nuna alltaf uppfaert
 			//if(sessionStorage.timi > localStorage.timestamp)
 			{
 				Update();
+                localStorage.timestamp = sessionStorage.timi;
 			}
 			else
 			{
@@ -28,6 +29,7 @@ function Update()
         dataType: 'text',
         success: function(msg){
 
+            console.log("update");
             localStorage.allContacts = msg;
             create_firstpage();
 
