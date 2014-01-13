@@ -27,35 +27,16 @@ function Update_Check()
 		 
 	});
 };
-
+//TODO Henda getdatajson.php a runars server
 function Update()
 {
-    $.ajax({
-        url: 'http://entrio.appservicestation.com/grabDivisions.php',
-        dataType: 'text',
-        success: function(msg){
-
-            localStorage.Divisions = msg;
-            //console.log(localStorage.innihald);
-
-            create_firstpage();
-
-        }
-
-    });
     $.ajax({
         url: 'http://85.220.27.109:2205/simaskra/simaskraapp/php/getdatajson.php',
         dataType: 'text',
         success: function(msg){
 
-            localStorage.test = $.parseJSON(msg);
-            console.log(localStorage.test);
-            for ( property in localStorage.test.Contacts ) {
-                console.log( property ); // Outputs: foo, fiz or fiz, foo
-            }
-            console.log(localStorage.test.Contacts.Divisions);
-
-
+            localStorage.allContacts = msg;
+            create_firstpage();
         }
 
     });

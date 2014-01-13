@@ -18,6 +18,7 @@
     <script type="text/javascript" src="js/create_divisons.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_onedivison.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_workplace.js"></script><!-- Get data from server-->
+    <script type="text/javascript" src="js/create_oneworkplace.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_information.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="js/create_map.js"></script><!-- Get data from server-->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
@@ -38,6 +39,9 @@
         });
         $(document).on('click','a.division', function() {
             sessionStorage.division = $(this).attr("id");
+        });
+        $(document).on('click','a.workplace', function() {
+            sessionStorage.workplace = $(this).attr("id");
         });
 
 
@@ -122,9 +126,9 @@
 
         function save_contact(id)
         {
-            data = $.parseJSON(localStorage.Divisions);
-            dataDivision = data.Divisions;
-            numItems = dataDivision.length -1;
+
+            dataDivision = localStorage.Divisions;
+            numItems = dataDivision.length;
 
             dataOneDivision =  dataDivision[numItems].Division;
             cItems = dataOneDivision[id];
@@ -261,7 +265,27 @@
     </div><!-- /footer -->
 </div><!-- /Page 4-->
 
-<!-- Page 5, Displays information on a employee-->
+<!-- Page 5, Page for names grouped by oneworkplace-->
+<div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="oneworkplace" data-url="panel-fixed-page1">
+    <div data-role="header" data-theme="a" data-position="fixed" >
+        <h1></h1>
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div><!-- /header -->
+    <div  data-role="content"  id="oneworkplace_list">
+
+    </div>
+    <div data-role="footer" data-id="foo1" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a class="footertab" href="#featured" data-transition="none"  id="1">Stafrófsröð</a></li>
+                <li><a class="footertab" href="#divisions" data-transition="none" id="2">Deild</a></li>
+                <li><a class="footertab" href="#workplace" data-transition="none" id="3">Starfsstöð</a></li>
+            </ul>
+        </div>
+    </div><!-- /footer -->
+</div><!-- /Page 5-->
+
+<!-- Page 6, Displays information on a employee-->
 <div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="information" data-url="panel-fixed-page1">
     <div data-role="header" data-theme="a" data-position="fixed" >
         <h1></h1>
@@ -271,7 +295,7 @@
 
     </div>
 
-</div><!-- /Page 5-->
+</div><!-- /Page 6-->
 
 
 

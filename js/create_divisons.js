@@ -3,21 +3,22 @@ $(document).on( 'pagebeforeshow','#divisions' ,function( e, data ) {
     console.log("Divisons");
     pageSelector = divisions;//urlObj.hash.replace( /\?.*$/, "" );
 
-    data = $.parseJSON(localStorage.Divisions);
-    dataDivision = data.Divisions;
+    data = $.parseJSON(localStorage.allContacts);
+    allContacts = data.Contacts;
+    cItems = allContacts[0].Divisions;
 
-    if ( dataDivision ) {
+    if ( cItems ) {
         var $page = $( pageSelector ),
 
         $header = $page.children( ":jqmData(role=header)" ),
 
         markup = '<ul id="division_list"  data-role="listview" data-theme="a" >';
 
-        numItems = dataDivision.length-1;
+        numItems = cItems.length;
 
         for ( var i = 0; i < numItems; i++ ) {
 
-            markup += ' <li data-icon="false" ><a class="division" id="'+i+'" href="#onedivision"><h4>'+dataDivision[i].DivisionName+'</h4></a></li>';
+            markup += ' <li data-icon="false" ><a class="division" id="'+i+'" href="#onedivision"><h4>'+cItems[i].DivisionName+'</h4></a></li>';
 
         }
 

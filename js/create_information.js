@@ -1,10 +1,10 @@
 $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
 
-    data = $.parseJSON(localStorage.Divisions);
-    dataDivision = data.Divisions;
-    numItems = dataDivision.length -1;
+    data = $.parseJSON(localStorage.allContacts);
+    allContacts = data.Contacts;
+    cItems = allContacts[2].Alphabet;
 
-    if ( dataDivision ) {
+    if ( cItems ) {
         // Get the page we are going to dump our content into.
         var $page = $( pageSelector ),
 
@@ -14,7 +14,7 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
         $current = sessionStorage.flokkur;
 
         // The array of items for this category.
-        cItems = dataDivision[numItems].Division;
+        //cItem
 
         markup = "<div id=\"employeeDetails\">";
         markup += "<h3 id=\"fullName\">" + cItems[$current].Nafn + "</h3>";

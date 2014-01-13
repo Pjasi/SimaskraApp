@@ -1,11 +1,11 @@
 ﻿function create_firstpage()
 {
 	pageSelector = featured;//urlObj.hash.replace( /\?.*$/, "" );
-    data = $.parseJSON(localStorage.Divisions);
-    dataDivision = data.Divisions;
-    numItemss = dataDivision.length -1;
+    data = $.parseJSON(localStorage.allContacts);
+    allContacts = data.Contacts;
+    cItems = allContacts[2].Alphabet;
 
-	if ( dataDivision ) {
+	if ( cItems ) {
 		// Get the page we are going to dump our content into.
 		var $page = $( pageSelector ),
 
@@ -16,10 +16,11 @@
         //$content = $page.children( ":jqmData(role=id)" ),
 
         // The array of items for this category.
-        cItems = dataDivision[numItemss].Division;
+        //cItems
 
         // The number of items in the category.
         numItems = cItems.length;
+
 
         // The markup we are going to inject into the content
         // area of the page.
@@ -34,7 +35,7 @@
 		markup += "</ul>";
 
 
-		$header.find( "h1" ).html( "Símaskráin okkar allra" );
+		$header.find( "h1" ).html( "Símaskrá Landsnets" );
 
 		$("#alphabet_list").html( markup );
 

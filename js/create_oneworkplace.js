@@ -1,17 +1,17 @@
-$(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
+$(document).on( 'pagebeforeshow','#oneworkplace' ,function( e, data ) {
 
-    console.log("onedivision");
+    console.log("oneworkplace");
     //category = $.parseJSON(localStorage.innihald);
     //console.log(category);
 
     // The pages we use to display our content are already in
     // the DOM. The id of the page we are going to write our
     // content into is specified in the hash before the '?'.
-    pageSelector = onedivision;//urlObj.hash.replace( /\?.*$/, "" );
+    pageSelector = oneworkplace;//urlObj.hash.replace( /\?.*$/, "" );
 
     data = $.parseJSON(localStorage.allContacts);
     allContacts = data.Contacts;
-    cItems = allContacts[0].Divisions;
+    cItems = allContacts[1].Workplace;
 
     if ( cItems ) {
         // Get the page we are going to dump our content into.
@@ -25,26 +25,27 @@ $(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
         markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni">';
 
 
-        dataoneDivision = cItems[sessionStorage.division].Division;
+        dataoneWorkplace = cItems[sessionStorage.workplace].Workplace;
+
         // The number of items in the category.
-        numItems = dataoneDivision.length;
+        numItems = dataoneWorkplace.length;
 
 
         for ( var i = 0; i < numItems; i++ ) {
 
-            markup += ' <li data-icon="false"><a class="flokkur" id="'+ dataoneDivision[i].Id +'" href="#information" data-transition="none"  ><h4>'+ dataoneDivision[i].Nafn+'</h4></a></li>';
+            markup += ' <li data-icon="false"><a class="flokkur" id="'+ dataoneWorkplace[i].Id +'" href="#information" data-transition="none"  ><h4>'+ dataoneWorkplace[i].Nafn+'</h4></a></li>';
         }
 
 
         markup += "</ul>";
 
-        $textforhader = dataoneDivision[0].Deild;
+        $textforhader = dataoneWorkplace[0].Deild;
         $header.find( "h1" ).html($textforhader).text();
-        $("#onedivision_list").html( markup );
+        $("#oneworkplace_list").html( markup );
 
         $page.page();
 
-        $("#onedivision_list").trigger( 'create' );
+        $("#oneworkplace_list").trigger( 'create' );
         $page.page();
 
 
