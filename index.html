@@ -167,13 +167,13 @@
         }
 
         function onSaveSuccess(contact) {
-            alert(contact.name.givenName + " var vistaður");
+            //alert(contact.name.givenName + " var vistaður");
 
             navigator.notification.alert(
                     contact.name.givenName + " var vistaður",  // message
                     alertDismissed,         // callback
                     'Tengilið vistaður.',            // title
-                    'Ok'                  // buttonName
+                    'Í Lagi!'                  // buttonName
             );
         }
 
