@@ -33,7 +33,7 @@ for($i=0; $i<$numberOfArr; $i+=3)
 	$phonenumber[$counter] = get_string_between($arr[$i+1], '<td header="id3" scope="col" class="col1">', "<");
 	$phonenumber[$counter] = str_replace(' ','',$phonenumber[$counter]);
 	$email[$counter] = get_string_between($arr[$i+2], '<td header="id4" scope="col" class="col1">', "<");
-	$email[$counter] = str_replace('[hja]',"&#64;",$email[$counter]);
+	$email[$counter] = str_replace('[hja]',"@",$email[$counter]);
 	
 	
 	$counter += 1;
