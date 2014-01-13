@@ -38,7 +38,7 @@ function Update()
 
             localStorage.allContacts = msg;
             create_firstpage();
-            navigator.splashscreen.hide();
+
         }
 
     });
