@@ -72,7 +72,7 @@
         });
 
         function onDeviceReady() {
-            //alert("we are an app");
+            navigator.splashscreen.show();
             console.log("deviceready triggeraðist");
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
