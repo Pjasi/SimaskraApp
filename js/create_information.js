@@ -1,5 +1,6 @@
 $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
 
+    pageSelector = information;//urlObj.hash.replace( /\?.*$/, "" );
     data = $.parseJSON(localStorage.allContacts);
     allContacts = data.Contacts;
     cItems = allContacts[2].Alphabet;
