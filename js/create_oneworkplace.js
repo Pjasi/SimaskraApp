@@ -39,7 +39,7 @@ $(document).on( 'pagebeforeshow','#oneworkplace' ,function( e, data ) {
 
         markup += "</ul>";
 
-        $textforhader = dataoneWorkplace[0].Deild;
+        $textforhader = dataoneWorkplace[sessionStorage.workplace].Deild;
         $header.find( "h1" ).html($textforhader).text();
         $("#oneworkplace_list").html( markup );
 
