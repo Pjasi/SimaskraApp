@@ -7,7 +7,7 @@
 
 			category = $.parseJSON(msg);
 			sessionStorage.timi = category.lastchange.timi;
-            if(sessionStorage.uppfaera == 1) //ta uppfaera nuna alltaf uppfaert
+            if(sessionStorage.uppfaera == "1") //ta uppfaera nuna alltaf uppfaert
 			//if(sessionStorage.timi > localStorage.timestamp)
 			{
 				Update();
