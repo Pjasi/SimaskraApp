@@ -167,7 +167,17 @@
         }
 
         function onSaveSuccess(contact) {
-            alert(contact.name.givenName + " var vistaður");
+            //alert(contact.name.givenName + " var vistaður");
+
+            navigator.notification.alert(
+                    contact.name.givenName + ' var vistaður',
+                    function nothiong()
+                    {
+
+                    },
+                    'Tengilidur vistadur.',
+                    'Ok'
+            );
         }
 
         // onSaveError: Failed to get the contacts
