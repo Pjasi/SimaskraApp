@@ -27,11 +27,12 @@ function Update_Check()
 		 
 	});
 };
-//TODO Henda getdatajson.php a runars server
+
+
 function Update()
 {
     $.ajax({
-        url: 'http://85.220.27.109:2205/simaskra/simaskraapp/php/getdatajson.php',
+        url: 'http://entrio.appservicestation.com/getDataJson.php',
         dataType: 'text',
         success: function(msg){
 
