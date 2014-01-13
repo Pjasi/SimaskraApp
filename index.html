@@ -128,11 +128,11 @@
         function save_contact(id)
         {
 
-            dataDivision = localStorage.Divisions;
-            numItems = dataDivision.length;
+            data = $.parseJSON(localStorage.allContacts);
+            allContacts = data.Contacts;
+            cItemss = allContacts[2].Alphabet;
 
-            dataOneDivision =  dataDivision[numItems].Division;
-            cItems = dataOneDivision[id];
+            cItems = cItemss[id];
             // create a new contact object
             var contact = navigator.contacts.create();
             contact.displayName = cItems.Nafn;
