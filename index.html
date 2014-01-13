@@ -170,15 +170,18 @@
             //alert(contact.name.givenName + " var vistaður");
 
             navigator.notification.alert(
-                    contact.name.givenName + ' var vistaður',
-                    function nothiong()
-                    {
-
-                    },
-                    'Tengilidur vistadur.',
-                    'Ok'
+                    contact.name.givenName + " var vistaður",  // message
+                    alertDismissed,         // callback
+                    'Tengilið vistaður.',            // title
+                    'Ok'                  // buttonName
             );
         }
+
+        function alertDismissed() {
+            // do something
+        }
+
+
 
         // onSaveError: Failed to get the contacts
         //
