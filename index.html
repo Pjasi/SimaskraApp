@@ -43,15 +43,14 @@
         $(document).on('click','a.workplace', function() {
             sessionStorage.workplace = $(this).attr("id");
         });
+        //Disable active state on buttons, removes the blue theme when button is pressed.
+        $(document).on('tap', function(e){
+            $('.activeOnce').removeClass($.mobile.activeBtnClass);
+        });
 
 
         $(document).on( 'pageinit ','#featured', function(event)
         {
-            //Disable active state on buttons, removes the blue theme when button is pressed.
-            $(document).on('tap', function(e){
-                $('.activeOnce').removeClass($.mobile.activeBtnClass);
-            });
-
             console.log("Athuga hvort eigi að uppfæra gögn");
             if(sessionStorage.load == "1")
             {
@@ -59,40 +58,21 @@
             }
             else
             {
-                //loadViewViaAjax('Index.html', afterAjax);
+
                 console.log("Uppfærir gögn");
                 //Athuga hvort eigi að sækja gögn
                 Update_Check();
                 sessionStorage.setItem("load",1);
             }
-
-
-
-
         });
 
         function onDeviceReady() {
             navigator.splashscreen.show();
-            console.log("deviceready triggeraðist");
+
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
-
-            //var options = new ContactFindOptions();
-            //var fields = ["displayName", "name"];
-            //navigator.contacts.find(fields, onSuccess, onError, options);
-
         }
 
-        function onSuccess(contacts) {
-            sessionStorage.setItem("contacts",contacts);
-            alert("Display Name = " + contacts[0].displayName );
-
-        }
-
-
-        function onError(contactError) {
-            alert('onError!');
-        }
 
 
         //TODO: add logic to the back buton, if on one of the main pages go to search? if on a list use history back?
@@ -172,7 +152,7 @@
             navigator.notification.alert(
                     contact.name.givenName + " var vistaður",  // message
                     alertDismissed,         // callback
-                    'Tengilið vistaður.',            // title
+                    'Tengiliður vistaður.',            // title
                     'Í Lagi!'                  // buttonName
             );
         }

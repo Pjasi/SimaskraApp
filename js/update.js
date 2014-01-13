@@ -7,8 +7,8 @@
 
 			category = $.parseJSON(msg);
 			sessionStorage.timi = category.lastchange.timi;
-            //if(sessionStorage.timi == 1) ta uppfaera nuna alltaf uppfaert
-			if(sessionStorage.timi > localStorage.timestamp)
+            if(sessionStorage.timi == 1) //ta uppfaera nuna alltaf uppfaert
+			//if(sessionStorage.timi > localStorage.timestamp)
 			{
 				Update();
 			}
@@ -16,12 +16,7 @@
 			{
 				create_firstpage();
 			}
-			sessionStorage.setItem("kisi","kisi"); 
-
-		   
 		}
-		
-		 
 	});
 };
 
