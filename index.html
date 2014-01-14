@@ -76,12 +76,16 @@
 
 
 
-        //TODO: add logic to the back buton, if on one of the main pages go to search? if on a list use history back?
+   
         document.addEventListener("backbutton", function() {
             if ( $('.ui-page-active').attr('id') == 'featured') {
                 exitAppPopup();
             }
             else if( $('.ui-page-active').attr('id') == 'divisions')
+            {
+                window.location = "#featured";
+            }
+            else if( $('.ui-page-active').attr('id') == 'workplace')
             {
                 window.location = "#featured";
             }
