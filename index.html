@@ -159,7 +159,7 @@
             //alert(contact.name.givenName + " var vistaður");
 
             navigator.notification.alert(
-                    contact.name.givenName + " var vistaður",  // message
+                    contact.name.givenName,  // message
                     alertDismissed,         // callback
                     'Tengiliður vistaður.',            // title
                     'Í Lagi!'                  // buttonName
@@ -175,7 +175,25 @@
         // onSaveError: Failed to get the contacts
         //
         function onSaveError(contactError) {
-            alert("Error = " + contactError.code);
+            //alert("Error = " + contactError.code);
+            switch(n)
+            {
+                case 0:
+                    navigator.notification.alert(
+                            contact.name.givenName + " er í símaskránni",  // message
+                            alertDismissed,         // callback
+                            'Villa',            // title
+                            'Í Lagi!'                  // buttonName
+                    );
+                    break;
+                default:
+                    navigator.notification.alert(
+                            "Villa = " + contactError.code,  // message
+                            alertDismissed,         // callback
+                            'Villa',            // title
+                            'Í Lagi!'                  // buttonName
+                    );
+            }
         }
 
 
