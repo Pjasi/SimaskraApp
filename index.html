@@ -176,7 +176,7 @@
         //
         function onSaveError(contactError) {
             //alert("Error = " + contactError.code);
-            switch(n)
+            switch(contactError.code)
             {
                 case 0:
                     navigator.notification.alert(
