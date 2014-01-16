@@ -114,6 +114,7 @@
             document.addEventListener("deviceready", onDeviceReady, false);
         }
 
+        //TODO: add contact.rawId so the contact will not be duplicated just updated. One solution for the id could be the id from the database, it should never change.
         function save_contact(id)
         {
 
@@ -131,6 +132,8 @@
             var name = new ContactName();
             name.givenName = cItems.Nafn;
             contact.name = name;
+
+            contact.rawId =cItems.Id;
 
             var tPhoneNumbers = new Array();
             tPhoneNumbers[0] = new ContactField('work', cItems.Simi,true);
