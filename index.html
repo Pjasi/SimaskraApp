@@ -184,22 +184,7 @@
             );
         }
 
-        function onSuccessFind(contact) {
-            navigator.notification.alert(
-                    contact.phoneNumbers + ".",  // message
-                    alertDismissed,         // callback
-                    'Tengiliður vistaður.',            // title
-                    'Í Lagi!'                  // buttonName
-            );
-        }
-        function onErrorFind() {
-                navigator.notification.alert(
-                        "......",  // message
-                        alertDismissed,         // callback
-                        'Tengiliður vistaður.',            // title
-                        'Í Lagi!'                  // buttonName
-                );
-        }
+
         function alertDismissed() {
             // do something
         }
@@ -214,7 +199,7 @@
             {
                 case 0:
                     navigator.notification.alert(
-                            contact.name.givenName + " er í símaskránni",  // message
+                            " er í símaskránni",  // message
                             alertDismissed,         // callback
                             'Villa',            // title
                             'Í Lagi!'                  // buttonName
