@@ -151,10 +151,13 @@
             contact.organizations = [{"name":"Landsnet","title":cItems.Starfsheiti,"type":null,"pref":"false","department":cItems.Deild}];
             contact.rawId =cItems.Id;
 
-            var tPhoneNumbers = new Array();
-            tPhoneNumbers[0] = new ContactField('work', '123456789',true);
+
+            //var tPhoneNumbers = new Array();
+            //tPhoneNumbers[0] = new ContactField('work', '123456789',true);
             //tPhoneNumbers[1] = new ContactField('mobile', '', false);
-            contact.phoneNumbers = tPhoneNumbers;
+            //contact.phoneNumbers = tPhoneNumbers;
+
+            contact.phoneNumbers =[{"type":"work","value":cItems.Simi,"id":0,"pref":false},{"type":"mobile","value":" ","id":1,"pref":false}];
 
 
 
