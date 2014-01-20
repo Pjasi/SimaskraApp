@@ -123,11 +123,20 @@
         function save_contact(id)
         {
 
+
+
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
 
             cItems = cItemss[id];
+
+            var options = new ContactFindOptions();
+            options.filter = cItems.Simi;
+            var filter = ["phoneNumbers"];
+            navigator.contacts.find(filter, onSuccessFind, onErrorFind, options);
+
+
             // create a new contact object
             var contact = navigator.contacts.create();
             contact.displayName = cItems.Nafn;
@@ -164,7 +173,7 @@
 
 
             // save to device
-            contact.save(onSaveSuccess,onSaveError);
+            contact.save(onSaveSuccess,onSaveError, onUpdate);
         }
 
         function onSaveSuccess(contact) {
@@ -178,6 +187,21 @@
             );
         }
 
+        function onSuccessFind() {
+            navigator.notification.alert(
+                    contact.phoneNumbers + ".",  // message
+                    alertDismissed,         // callback
+                    'Tengiliður vistaður.',            // title
+                    'Í Lagi!'                  // buttonName
+            );
+            function onErrorFind() {
+                navigator.notification.alert(
+                        "......",  // message
+                        alertDismissed,         // callback
+                        'Tengiliður vistaður.',            // title
+                        'Í Lagi!'                  // buttonName
+                );
+        }
         function alertDismissed() {
             // do something
         }
