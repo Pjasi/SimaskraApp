@@ -132,8 +132,8 @@
             cItems = cItemss[id];
 
             var options = new ContactFindOptions();
-            options.filter = cItems.Simi;
-            var filter = ["phoneNumbers"];
+            options.filter = cItems.Id;
+            var filter = ["rawId"];
             navigator.contacts.find(filter, onSuccessFind, onErrorFind, options);
 
 
