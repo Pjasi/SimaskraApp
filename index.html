@@ -132,18 +132,12 @@
             var contact = navigator.contacts.create();
             contact.displayName = cItems.Nafn;
             contact.nickname = cItems.Nafn;            // specify both to support all devices
-            /*
+
             // populate some fields
             var name = new ContactName();
             name.givenName = cItems.Nafn;
             contact.name = name;
 
-            contact.rawId =cItems.Id;
-
-            var tPhoneNumbers = new Array();
-            tPhoneNumbers[0] = new ContactField('work', cItems.Simi,true);
-            tPhoneNumbers[1] = new ContactField('mobile', '', false);
-            contact.phoneNumbers = tPhoneNumbers;
 
             contact.emails = [{"type":"work","value":cItems.Netfang,"id":0,"pref":false}];
 
@@ -155,7 +149,14 @@
             contact.addresses = addresses;
 
             contact.organizations = [{"name":"Landsnet","title":cItems.Starfsheiti,"type":null,"pref":"false","department":cItems.Deild}];
-            */
+            contact.rawId =cItems.Id;
+        /*
+            var tPhoneNumbers = new Array();
+            tPhoneNumbers[0] = new ContactField('work', cItems.Simi,true);
+            tPhoneNumbers[1] = new ContactField('mobile', '', false);
+            contact.phoneNumbers = tPhoneNumbers;
+
+        */
 
 
 
