@@ -1,5 +1,5 @@
 #fixedfilter {
-    padding-top : 45px;
+    padding-top : 0px;
 }
 #fixedfilter form {
     position : fixed;
@@ -9,9 +9,7 @@
     z-index  : 1;
 }​
 
-
 #haus  {
-    padding-top : 45px;
     position : fixed;
     top      : 0px;
     width    : 100%;
