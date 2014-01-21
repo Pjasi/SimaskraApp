@@ -4,7 +4,7 @@
 #onedivision_list form {
     position : fixed;
     top      : 35px;
-    left     : 5px;
+    left     : 0px;
     width    : 100%;
     z-index  : 1;
 }​
@@ -15,7 +15,7 @@
 #oneworkplace_list form {
     position : fixed;
     top      : 35px;
-    left     : 5px;
+    left     : 0px;
     width    : 100%;
     z-index  : 1;
 }​
@@ -26,7 +26,13 @@
 #alphabet_list form {
     position : fixed;
     top      : 35px;
-    left     : 5px;
+    left     : 0px;
     width    : 100%;
+    z-index  : 1;
+}​
+
+
+#haus  {
+    position : fixed;
     z-index  : 1;
 }​
