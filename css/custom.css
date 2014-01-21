@@ -1,29 +1,7 @@
-#onedivision_list {
+#fixedfilter {
     padding-top : 45px;
 }
-#onedivision_list form {
-    position : fixed;
-    top      : 35px;
-    left     : 0px;
-    width    : 100%;
-    z-index  : 1;
-}​
-
- #oneworkplace_list {
-     padding-top : 45px;
- }
-#oneworkplace_list form {
-    position : fixed;
-    top      : 35px;
-    left     : 0px;
-    width    : 100%;
-    z-index  : 1;
-}​
-
- #alphabet_list {
-     padding-top : 45px;
- }
-#alphabet_list form {
+#fixedfilter form {
     position : fixed;
     top      : 35px;
     left     : 0px;
@@ -33,6 +11,7 @@
 
 
 #haus  {
+    padding-top : 45px;
     position : fixed;
     top      : 0px;
     width    : 100%;

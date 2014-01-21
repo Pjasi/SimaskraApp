@@ -22,7 +22,8 @@ $(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
 
         // The markup we are going to inject into the content
         // area of the page.
-        markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni">';
+        markup = '<div id="fixedfilter">';
+        markup += '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni">';
 
 
         dataoneDivision = cItems[sessionStorage.division].Division;
@@ -37,6 +38,7 @@ $(document).on( 'pagebeforeshow','#onedivision' ,function( e, data ) {
 
 
         markup += "</ul>";
+        markup += "</div>";
 
         $textforhader = dataoneDivision[0].Deild;
         $header.find( "h1" ).html($textforhader).text();

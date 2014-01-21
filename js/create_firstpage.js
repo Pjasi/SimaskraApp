@@ -24,7 +24,8 @@
 
         // The markup we are going to inject into the content
         // area of the page.
-         markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Leita af nafni">';
+        markup = '<div id="fixedfilter">';
+         markup += '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Leita af nafni">';
 
 
 		for ( var i = 0; i < numItems; i++ ) {
@@ -33,6 +34,7 @@
 
 		}
 		markup += "</ul>";
+        markup +="</div>";
 
 
 		$header.find( "h1" ).html( "Símaskrá Landsnets" );
