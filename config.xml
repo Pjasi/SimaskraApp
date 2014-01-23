@@ -40,6 +40,7 @@
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <gap:plugin name="com.adobe.plugins.gaplugin" />
+
     <!--
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
     -->
@@ -97,5 +98,15 @@
     <gap:splash src="res/screen/landsnetScreen.png"  gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="res/screen/landsnetScreen.png"  gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/landsnetScreen.png"  gap:platform="winphone" />
+
+
+    <preference name="permissions" value="none"/>
+
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
+    <feature name="Contacts">
+        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+    </feature>
 
 </widget>
