@@ -163,7 +163,8 @@
             //tPhoneNumbers[1] = new ContactField('mobile', '', false);
             //contact.phoneNumbers = tPhoneNumbers;
 
-            contact.phoneNumbers =[{"type":"work","value":cItems.Simi,"id":0,"pref":false},{"type":"mobile","value":" ","id":1,"pref":false}];
+            //contact.phoneNumbers =[{"type":"work","value":cItems.Simi,"id":0,"pref":false},{"type":"mobile","value":" ","id":1,"pref":false}];
+            contact.phoneNumbers =[{"type":"work","value":cItems.Simi,"id":0,"pref":false}];
 
 
 
@@ -207,7 +208,7 @@
                     break;
                 default:
                     navigator.notification.alert(
-                            "Villa = " + contactError.code,  // message
+                            "Villa = Upps",  // message
                             alertDismissed,         // callback
                             'Villa',            // title
                             'Í Lagi!'                  // buttonName
