@@ -22,7 +22,8 @@ $(document).on( 'pagebeforeshow','#oneworkplace' ,function( e, data ) {
 
         // The markup we are going to inject into the content
         // area of the page.
-        markup = '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni">';
+        markup = '<div id="fixedfilter">';
+        markup += '<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="Leita af nafni">';
 
 
         dataoneWorkplace = cItems[sessionStorage.workplace].Workplace;
@@ -38,7 +39,7 @@ $(document).on( 'pagebeforeshow','#oneworkplace' ,function( e, data ) {
 
 
         markup += "</ul>";
-
+        markup += "</div>";
 
         $textforhader =cItems[sessionStorage.workplace].WorkplaceName;
         $header.find( "h1" ).html($textforhader).text();
