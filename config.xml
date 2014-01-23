@@ -42,6 +42,7 @@
     <gap:plugin name="com.adobe.plugins.gaplugin" />
     <gap:plugin name="org.apache.cordova.contacts" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
 
     <!--
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
@@ -109,6 +110,9 @@
     </feature>
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
 
 </widget>
