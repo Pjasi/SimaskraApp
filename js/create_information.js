@@ -28,7 +28,7 @@ $(document).on( 'pagebeforeshow','#information' ,function( e, data ) {
         markup += "<li><a href=\"mailto:" +  cItems[$current].Netfang + "\""+ "><h3>Netfang</h3><p>" +  cItems[$current].Netfang + "</p></a></li>";
         markup += "<li><a href=\"tel:+354" +  cItems[$current].Simi + "\""+ "><h3>Simi</h3><p>" +  cItems[$current].Simi + "</p></a></li>";
         markup += "<li><a href=\"sms:+354" +  cItems[$current].Simi + "\""+ "><h3>Sms</h3><p>" +  cItems[$current].Simi + "</p></a></li>";
-        markup += "<li><a id=\"contact_save\" href=\"javascript:save_contact("  +$current+ ");\" ><h3>Vista sem tengilid</h3></a></li>";
+        //markup += "<li><a id=\"contact_save\" href=\"javascript:save_contact("  +$current+ ");\" ><h3>Vista sem tengilid</h3></a></li>";
         markup += "</ul>";
 
 
