@@ -58,23 +58,8 @@
             }
             else
             {
-                if(navigator.connection.type!=0 || navigator.connection.type !="none")
-                {
-                    //Athuga hvort eigi að sækja gögn
-                    Update_Check();
-                }
-                else
-                {
-                    create_firstpage();
-                    navigator.notification.alert(
-                            "Engin internettenging, gat ekki uppfært upplýsingar",  // message
-                            alertDismissed,         // callback
-                            'Engin internettenging!',            // title
-                            'Í Lagi!'                  // buttonName
-                    );
-                }
-
-
+                //Athuga hvort eigi að sækja gögn
+                Update_Check();
                 sessionStorage.setItem("load",1);
             }
         });
