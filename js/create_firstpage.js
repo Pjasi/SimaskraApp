@@ -45,6 +45,7 @@
 		$("#alphabet_list").trigger( 'create' );
 		$page.page();
         navigator.splashscreen.hide();
+        checkConnection();
 	}
 
 }
