@@ -28,18 +28,15 @@
     <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="js/jquery.ui.map.js"></script>-->
     <script type="text/javascript">
-
         //Athuga hvort localstorage se til, ef ekki bua til
         if(!localStorage.timestamp)
         {
             localStorage.timestamp = '0';
         }
-
-
         //Save what offer was just clicked
         $(document).on('click','a.flokkur', function() {
             sessionStorage.flokkur = $(this).attr("id");
-           // sessionStorage.haus = $(this).attr();
+            // sessionStorage.haus = $(this).attr();
         });
         $(document).on('click','a.division', function() {
             sessionStorage.division = $(this).attr("id");
@@ -51,8 +48,6 @@
         $(document).on('tap', function(e){
             $('.activeOnce').removeClass($.mobile.activeBtnClass);
         });
-
-
         $(document).on( 'pageinit ','#featured', function(event)
         {
             console.log("Athuga hvort eigi að uppfæra gögn");
@@ -63,24 +58,16 @@
             }
             else
             {
-
-
                 //Athuga hvort eigi að sækja gögn
                 Update_Check();
                 sessionStorage.setItem("load",1);
             }
         });
-
         function onDeviceReady() {
             navigator.splashscreen.show();
-
             $.mobile.allowCrossDomainPages = true;
             $.support.cors = true;
         }
-
-
-
-
         document.addEventListener("backbutton", function() {
             if ( $('.ui-page-active').attr('id') == 'featured') {
                 exitAppPopup();
@@ -97,7 +84,6 @@
                 history.back();
             }
         }, false);
-
         function exitAppPopup() {
             navigator.notification.confirm(
                     'Loka símaskranni?'
@@ -111,86 +97,54 @@
             );
             return false;
         }
-
-
         function onBodyLoad() {
-
             document.addEventListener("deviceready", onDeviceReady, false);
         }
-
         //TODO: add contact.rawId so the contact will not be duplicated just updated. One solution for the id could be the id from the database, it should never change.
         function save_contact(id)
         {
-
-
-
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
-
             cItems = cItemss[id];
-
-
-
-
             // create a new contact object
             var contact = navigator.contacts.create();
             contact.displayName = cItems.Nafn;
             //contact.nickname = cItems.Nafn;            // specify both to support all devices
-
             // populate some fields
             var name = new ContactName();
             name.givenName = cItems.Nafn;
             contact.name = name;
-
-
             contact.emails = [{"type":"work","value":cItems.Netfang,"id":0,"pref":false}];
-
             var addresses = [1];
             var address = new ContactAddress();
             address.streetAddress = cItems.Starfsstod;
             address.country = 'Iceland';
             addresses[0] =  address;
             contact.addresses = addresses;
-
             contact.organizations = [{"name":"Landsnet","title":cItems.Starfsheiti,"type":null,"pref":"false","department":cItems.Deild}];
             //contact.rawId =cItems.Id;
-
-
             //var tPhoneNumbers = new Array();
             //tPhoneNumbers[0] = new ContactField('work', '123456789',true);
             //tPhoneNumbers[1] = new ContactField('mobile', '', false);
             //contact.phoneNumbers = tPhoneNumbers;
-
             //contact.phoneNumbers =[{"type":"work","value":cItems.Simi,"id":0,"pref":false},{"type":"mobile","value":" ","id":1,"pref":false}];
             contact.phoneNumbers =[{"type":"work","value":cItems.Simi,"id":0,"pref":false}];
-
-
-
-
-
             // save to device
             contact.save(onSaveSuccess,onSaveError);
         }
-
         function onSaveSuccess(contact) {
             //alert( " var vistaður");
-
             navigator.notification.alert(
-                   contact.name.givenName + " hefur verið bætt við símaskránna.",  // message
-                  alertDismissed,         // callback
-                  'Tengiliður vistaður.',            // title
-                  'Í Lagi!'                  // buttonName
+                    contact.name.givenName + " hefur verið bætt við símaskránna.",  // message
+                    alertDismissed,         // callback
+                    'Tengiliður vistaður.',            // title
+                    'Í Lagi!'                  // buttonName
             );
         }
-
-
         function alertDismissed() {
             // do something
         }
-
-
-
         // onSaveError: Failed to get the contacts
         //
         function onSaveError(contactError) {
@@ -214,9 +168,6 @@
                     );
             }
         }
-
-
-
     </script>
 
 
@@ -234,13 +185,13 @@
 
     </div>
     <div data-role="footer" data-id="foo1" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a class="footertab" href="#featured" data-transition="none"  id="1">Leit</a></li>
-                    <li><a class="footertab" href="#divisions" data-transition="none" id="2">Deild</a></li>
-                    <li><a class="footertab" href="#workplace" data-transition="none" id="3">Starfsstöð</a></li>
-                </ul>
-            </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a class="footertab" href="#featured" data-transition="none"  id="1">Leit</a></li>
+                <li><a class="footertab" href="#divisions" data-transition="none" id="2">Deild</a></li>
+                <li><a class="footertab" href="#workplace" data-transition="none" id="3">Starfsstöð</a></li>
+            </ul>
+        </div>
     </div><!-- /footer -->
 </div><!-- /Page 1-->
 
@@ -348,7 +299,7 @@
             <a href="mailto:allir@entrio.is?Subject=Landsnet-Simaskra%20Spurning" target="_top">Senda tölvupóst á allir@entrio.is</a>
         </p>
         <p>
-           <a href="#" onclick="window.open('http://www.entrio.is', '_system');">www.entrio.is</a>
+            <a href="#" onclick="window.open('http://www.entrio.is', '_system');">www.entrio.is</a>
         </p>
 
     </div>
