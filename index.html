@@ -127,8 +127,8 @@
             for (var i = 0; i < contacts.length; i++) {
                 if (contacts[i].displayName == cItems.Nafn) {
                     for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-                        alert(contacts[i].phoneNumbers[j][1] + " " + cItems.Simi);
-                        if (contacts[i].phoneNumbers[j][1] == cItems.Simi) {
+                        alert(contacts[i].phoneNumbers[j].value + " " + cItems.Simi);
+                        if (contacts[i].phoneNumbers[j].value == cItems.Simi) {
                             found = true;
                             alert("foundit");
                         }
