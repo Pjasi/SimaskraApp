@@ -132,10 +132,10 @@
             options.multiple = true;
             options.desiredFields = [navigator.contacts.fieldType.id];
             var fields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.work];
-            navigator.contacts.find(fields, onFindSuccess(id), onFindError, options);
+            navigator.contacts.find(fields, onFindSuccess, onFindError(id), options);
 
         }
-        function onFindError() {
+        function onFindSuccess() {
             navigator.notification.alert(
                     "Enginn Vistadur.",  // message
                     alertDismissed,         // callback
@@ -143,7 +143,7 @@
                     'Í Lagi!'                  // buttonName
             );
         }
-        function onFindSuccess(id)
+        function onFindError(id)
         {
 
             data = $.parseJSON(localStorage.allContacts);
