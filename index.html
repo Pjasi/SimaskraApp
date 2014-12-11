@@ -70,21 +70,7 @@
             $.support.cors = true;
         }
 
-        function checkConnection() {
-            var networkState = navigator.connection.type;
 
-            var states = {};
-            states[Connection.UNKNOWN] = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI] = 'WiFi connection';
-            states[Connection.CELL_2G] = 'Cell 2G connection';
-            states[Connection.CELL_3G] = 'Cell 3G connection';
-            states[Connection.CELL_4G] = 'Cell 4G connection';
-            states[Connection.CELL] = 'Cell generic connection';
-            states[Connection.NONE] = 'No network connection';
-
-            alert('Connection type: ' + states[networkState]);
-        }
 
         document.addEventListener("backbutton", function() {
             if ( $('.ui-page-active').attr('id') == 'featured') {
@@ -120,35 +106,53 @@
         }
         //TODO: add contact.rawId so the contact will not be duplicated just updated. One solution for the id could be the id from the database, it should never change.
 
-        function find_contact(id) {
+
+        function find_all(id) {
+            sessionStorage.idToSave = id;
+            // find all contacts
+            var options = new ContactFindOptions();
+            options.filter = "";
+            var filter = ["displayName", "addresses"];
+            navigator.contacts.find(filter, findAllSuccess, onSaveError, options);
+        }
+
+        function findAllSuccess() {
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
-            cItems = cItemss[id];
+            cItems = cItemss[sessionStorage.idToSave];
 
-            //Check if the same phonenumber exist
-            var options = new ContactFindOptions();
-            options.filter = cItems.Simi;
-            options.multiple = false;
-            var fields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.work];
-            navigator.contacts.find(fields, onFindSuccess, onFindError(id), options);
+            var found = false;
+            for (var i = 0; i < contacts.length; i++) {
+                if (contacts[i].displayName == cItems.Nafn)
+                    found = true
+            }
+
+            if (!found)
+                save_contact(sessionStorage.idToSave);
+            else {
+                navigator.notification.alert(
+                        "Tengiliður er nú þegar í símaskránni",  // message
+                        alertDismissed,         // callback
+                        'Villa',            // title
+                        'Í Lagi!'                  // buttonName
+                );
+            }
 
         }
-        function onFindSuccess() {
-            navigator.notification.alert(
-                    "Tengiliður er nú þegar í símaskránni",  // message
-                    alertDismissed,         // callback
-                    'Villa',            // title
-                    'Í Lagi!'                  // buttonName
-            );
-        }
-        function onFindError(id)
+
+
+        function save_contact(id)
         {
 
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
             cItems = cItemss[id];
+            //Search trough all contacts and check name and phone
+            // find all contacts
+
+
             // create a new contact object
             var contact = navigator.contacts.create();
             contact.displayName = cItems.Nafn;
