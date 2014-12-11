@@ -127,9 +127,12 @@
 
             var found = false;
             for (var i = 0; i < contacts.length; i++) {
-                alert(contacts[i].displayName + " " + cItems.Nafn);
-                if (contacts[i].displayName == cItems.Nafn)
-                    found = true
+                //alert(contacts[i].displayName + " " + cItems.Nafn);
+                if (contacts[i].displayName == cItems.Nafn) {
+                    found = true;
+                    alert("foundit");
+                }
+
             }
 
             if (!found)
