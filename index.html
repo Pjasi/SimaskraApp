@@ -129,17 +129,16 @@
             //Check if the same phonenumber exist
             var options = new ContactFindOptions();
             options.filter = cItems.Simi;
-            options.multiple = true;
-            options.desiredFields = [navigator.contacts.fieldType.id];
+            options.multiple = false;
             var fields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.work];
             navigator.contacts.find(fields, onFindSuccess, onFindError(id), options);
 
         }
         function onFindSuccess() {
             navigator.notification.alert(
-                    "Enginn Vistadur.",  // message
+                    "Tengiliður er nú þegar í símaskránni",  // message
                     alertDismissed,         // callback
-                    'Tengiliður vistaður.',            // title
+                    'Villa',            // title
                     'Í Lagi!'                  // buttonName
             );
         }
