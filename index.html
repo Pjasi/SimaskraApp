@@ -104,8 +104,6 @@
         function onBodyLoad() {
             document.addEventListener("deviceready", onDeviceReady, false);
         }
-        //TODO: add contact.rawId so the contact will not be duplicated just updated. One solution for the id could be the id from the database, it should never change.
-
 
         function find_all(id) {
 
@@ -127,7 +125,7 @@
 
             var found = false;
             for (var i = 0; i < contacts.length; i++) {
-                //alert(contacts[i].displayName + " " + cItems.Nafn);
+                alert(contacts[i].phoneNumbers);
                 if (contacts[i].displayName == cItems.Nafn) {
                     found = true;
 
@@ -151,7 +149,7 @@
 
         function save_contact(id)
         {
-           
+
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
