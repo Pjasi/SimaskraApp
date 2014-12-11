@@ -119,8 +119,33 @@
             document.addEventListener("deviceready", onDeviceReady, false);
         }
         //TODO: add contact.rawId so the contact will not be duplicated just updated. One solution for the id could be the id from the database, it should never change.
-        function save_contact(id)
+
+        function find_contact(id) {
+            data = $.parseJSON(localStorage.allContacts);
+            allContacts = data.Contacts;
+            cItemss = allContacts[2].Alphabet;
+            cItems = cItemss[id];
+
+            //Check if the same phonenumber exist
+            var options = new ContactFindOptions();
+            options.filter = cItems.Simi;
+            options.multiple = true;
+            options.desiredFields = [navigator.contacts.fieldType.id];
+            var fields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.work];
+            navigator.contacts.find(fields, onFindSuccess(id), onFindError, options);
+
+        }
+        function onFindError() {
+            navigator.notification.alert(
+                    "Enginn Vistadur.",  // message
+                    alertDismissed,         // callback
+                    'Tengiliður vistaður.',            // title
+                    'Í Lagi!'                  // buttonName
+            );
+        }
+        function onFindSuccess(id)
         {
+
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
@@ -128,6 +153,7 @@
             // create a new contact object
             var contact = navigator.contacts.create();
             contact.displayName = cItems.Nafn;
+
             //contact.nickname = cItems.Nafn;            // specify both to support all devices
             // populate some fields
             var name = new ContactName();
