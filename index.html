@@ -125,12 +125,14 @@
 
             var found = false;
             for (var i = 0; i < contacts.length; i++) {
-                alert(contacts[i].phoneNumbers);
                 if (contacts[i].displayName == cItems.Nafn) {
-                    found = true;
-
+                    for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+                        if (contacts[i].phoneNumbers[j] == cItems.Simi) {
+                            found = true;
+                            alert("foundit");
+                        }
+                    }
                 }
-
             }
 
             if (!found)
