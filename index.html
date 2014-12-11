@@ -108,6 +108,7 @@
 
 
         function find_all(id) {
+            alert("findall");
             sessionStorage.idToSave = id;
             // find all contacts
             var options = new ContactFindOptions();
@@ -117,6 +118,7 @@
         }
 
         function findAllSuccess() {
+            alert("findallA");
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
@@ -144,7 +146,7 @@
 
         function save_contact(id)
         {
-
+            alert("Save");
             data = $.parseJSON(localStorage.allContacts);
             allContacts = data.Contacts;
             cItemss = allContacts[2].Alphabet;
