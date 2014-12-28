@@ -51,19 +51,20 @@
         $(document).on( 'pageinit ','#featured', function(event)
         {
 
-            checkConnection();
-            
+
             console.log("Athuga hvort eigi að uppfæra gögn");
             if(sessionStorage.load == "1")
             {
                 console.log("uppfaeri ekki")
                 create_firstpage();
+                checkConnection();
             }
             else
             {
                 //Athuga hvort eigi að sækja gögn
                 Update_Check();
                 sessionStorage.setItem("load",1);
+                checkConnection();
             }
         });
         function onDeviceReady() {
